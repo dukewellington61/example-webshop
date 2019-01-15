@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+I have never build an app in my life and I have no idea what this first app of mine is gonna be.
