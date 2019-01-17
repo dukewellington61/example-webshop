@@ -3,11 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .navbar {
-	background-color: #4682B4 !important;
+	background-color: rgba(70,130,180,0.75) !important;
+	position: fixed;
+	width: 100%;
 }
 
 h1 {
-	padding-top: 50px;
+	padding-top: 100px;
 	padding-bottom: 20px;
 	font-family: Comic Sans MS,Verdana,Trebuchet MS,Arial Black,Impact,sans serif;
 	text-align: center;
@@ -25,11 +27,16 @@ p {
 }
 
 .my-image {
+	width: auto;
+	max-width: 100%;
 	padding-bottom: 30px;
 }
 
 footer {
+	position: fixed;
 	background-color: rgba(70,130,180,0.75);
+	width: 100%;
+	bottom: 0;
 }
 
 .fab {
