@@ -8,7 +8,15 @@
 	width: 100%;
 }
 
+
+@media (max-width: 340px) {
+	.navbar-brand {
+		font-size: 1em;
+	}
+}
+
 h1 {
+	font-size: 2em;
 	padding-top: 100px;
 	padding-bottom: 20px;
 	font-family: Comic Sans MS,Verdana,Trebuchet MS,Arial Black,Impact,sans serif;
@@ -16,10 +24,24 @@ h1 {
 }
 
  h2 {
+ 	font-size: 1.5em;
  	padding-bottom: 50px;
  	font-family: Comic Sans MS,Verdana,Trebuchet MS,Arial Black,Impact,sans serif;
- 	 text-align: center;
+ 	text-align: center;
 }
+
+@media (max-width: 430px) {
+	h2 {
+	 	padding-bottom: 20px;
+	}
+}
+
+@media (max-width: 361px) {
+	h1 {
+		font-size: 1.5em;		
+	}
+}
+
 
 p {
 	font-family:Comic Sans MS,Verdana,Trebuchet MS,Arial Black,Impact,sans serif;
