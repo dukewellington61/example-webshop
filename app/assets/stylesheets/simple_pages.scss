@@ -6,8 +6,22 @@
 	background-color: rgba(70,130,180,0.75) !important;
 	position: fixed;
 	width: 100%;
+	left:0;
 }
 
+.navbar-brand {
+	color: rgba(0,0,0,.5) !important;
+}
+
+.navbar-brand:hover {
+	background-color: rgba(70,130,180,0.05) !important;
+	color: black !important;
+}
+
+.nav-link:hover {
+	background-color: rgba(70,130,180,0.05) !important;
+	font-weight: 900;	
+}
 
 @media (max-width: 340px) {
 	.navbar-brand {
@@ -58,8 +72,13 @@ footer {
 	background-color: rgba(70,130,180,0.75);
 	width: 100%;
 	bottom: 0;
+	left:0;
 }
 
 .fab {
 	font-size: 2em;
+}
+
+.btn-floating:hover {
+	background-color: rgba(70,130,180,0.05) !important;
 }
