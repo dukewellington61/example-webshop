@@ -2,11 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//global
+
 .navbar {
 	background-color: rgba(70,130,180,0.75) !important;
 	position: fixed;
 	width: 100%;
-	left:0;
+	top: 0;
+	left: 0;
+	z-index: 1;
 }
 
 .navbar-brand {
@@ -29,9 +33,13 @@
 	}
 }
 
+#yield {
+	padding-bottom: 100px;
+}
+
 h1 {
 	font-size: 2em;
-	padding-top: 100px;
+	padding-top: 50px;
 	padding-bottom: 20px;
 	font-family: Comic Sans MS,Verdana,Trebuchet MS,Arial Black,Impact,sans serif;
 	text-align: center;
@@ -75,10 +83,6 @@ footer {
 	left:0;
 }
 
-footer{
-	display: none;
-}
-
 .fab {
 	font-size: 2em;
 }
@@ -86,3 +90,5 @@ footer{
 .btn-floating:hover {
 	background-color: rgba(70,130,180,0.05) !important;
 }
+
+

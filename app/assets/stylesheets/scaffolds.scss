@@ -83,6 +83,54 @@ label {
   display: block;
 }
 
+
+//index.html.erb
+
 img {
-  width: 500px;
+  width: 300px;
 }
+
+.name_product {
+  width: auto;
+  max-width: 300px;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: bolder;
+  padding-bottom: 20px;
+}
+
+.description_product {
+  width: auto;
+  max-width: 300px;
+  text-align: center;
+  font-weight: bolder;
+  padding-bottom: 10px;
+}
+
+.links_product {
+  padding-bottom: 50px;
+}
+
+.btn-primary {
+  width: 65px;
+  margin-left: 25px;
+  margin-top: 10px;
+  color: white !important;
+}
+
+//show.html.erb
+
+.name_show {
+  padding-top: 100px;
+  width: auto;
+  max-width: 500px;
+  text-align: center;
+}
+
+.description_show {
+  padding-top: 20px;
+  width: auto;
+  max-width: 500px;
+  text-align: center;
+}
+
