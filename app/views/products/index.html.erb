@@ -11,11 +11,19 @@
       <div class="col-md-4">      
         <div class="name_product"><%= product.name %></div>
         <div class="description_product"><%= product.description %></div>
+        <div class="colour">
+        <span class="color_tag">colour: </span>
+        <span class="color_product"><%= product.colour %></span>
+        </div>
         <div class="img-fluid"><%= image_tag("#{product.image_url}") %></div>
+        <div class="price">
+        <span class="price_tag">price: </span>
+        <span class="price_product"><%= product.price %> £</span>   
+        </div>     
         <div class="links_product">
-          <a class="btn btn-sm btn-primary" id="show_product" <%= link_to 'Show', product %></a>
-          <a class="btn btn-sm btn-primary" id="edit_product" <%= link_to 'Edit', product %></a>
-          <a class="btn btn-sm btn-primary" id="destroy_product" <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></a>     
+          <a class="btn btn-sm btn-primary btn_product_index" id="show_product" <%= link_to 'Show', product %></a>
+          <a class="btn btn-sm btn-primary btn_product_index" id="edit_product" <%= link_to 'Edit', product %></a>
+          <a class="btn btn-sm btn-primary btn_product_index" id="destroy_product" <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></a>     
        </div>
        </div>
       <% end %>

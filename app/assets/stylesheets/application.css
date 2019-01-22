@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+footer {
+	height: 80px;
+}
+
+.footer-copyright {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding-right: 10px;
+}
