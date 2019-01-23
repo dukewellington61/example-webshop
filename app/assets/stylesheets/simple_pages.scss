@@ -91,4 +91,52 @@ footer {
 	background-color: rgba(70,130,180,0.05) !important;
 }
 
+//landing page
+
+.header_featured_product {
+	padding-top: 50px;
+	padding-bottom: 20px;
+	width: 100%;
+}
+
+.featured_product {
+	position: relative;
+	max-width: 750px;
+	width: auto;
+	margin: 0 auto;
+}
+
+@media (max-width: 450px) {
+	.featured_product {
+	 left: 0;
+  	 position: absolute;
+     top: 50%;
+     -ms-transform: translateY(-50%);
+     transform: translateY(-50%);
+	}
+}
+
+.name__featured_product {
+	width: auto;
+  	max-width: 750px;
+  	font-size: 1.5em;
+  	text-align: center;
+  	font-weight: bolder
+}
+
+.description__featured_product {
+	width: auto;
+  	max-width: 750px;
+  	text-align: center;
+  	font-weight: bolder;
+}
+
+.img_featured_product img {
+	 position: relative;
+	 width: 100%;
+	 height: auto;
+	 max-width: 750px;
+	 margin: 0 auto;
+}
+
 

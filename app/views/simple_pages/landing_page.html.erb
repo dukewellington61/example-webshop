@@ -1,2 +1,14 @@
-<h2>Featured Product:</h2>
-<%= @featured_product.name %>
+<h2 class="header_featured_product">Featured Product:</h2>
+<div class="featured_product">
+	<div class="name__featured_product"><%= @featured_product.name %></div>
+	<div class="description__featured_product"><%= @featured_product.description %></div>
+	<div class="colour">
+		<span class="color_tag">colour: </span>
+		<span class="color_product"><%= @featured_product.colour %></span>
+	</div>
+	<div class="img-fluid img_featured_product"><%= image_tag("#{@featured_product.image_url}") %></div>
+	<div class="price">
+		<span class="price_tag">price: </span>
+		<span class="price_product"><%= @featured_product.price %> £</span>   
+ 	</div>  
+</div>  
