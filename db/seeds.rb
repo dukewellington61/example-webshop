@@ -1,3 +1,6 @@
+Order.create!([
+  {user_id: 1, product_id: 1, total: 10.0}
+])
 Product.create!([
   {name: "generic looking bike 1", description: "a rather generic looking bike", image_url: "adventure-beach-bicycle-462036.jpg", colour: "black", price: "450.99"},
   {name: "generic looking bike 2", description: "another rather generic looking bike", image_url: "mikkel-bech-748940-unsplash.jpg", colour: "black white", price: "499.99"},
