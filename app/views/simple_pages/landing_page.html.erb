@@ -1,14 +1,32 @@
-<h2 class="header_featured_product">Featured Product:</h2>
-<div class="featured_product">
-	<div class="name__featured_product"><%= @featured_product.name %></div>
-	<div class="description__featured_product"><%= @featured_product.description %></div>
-	<div class="colour">
-		<span class="color_tag">colour: </span>
-		<span class="color_product"><%= @featured_product.colour %></span>
-	</div>
-	<div class="img-fluid img_featured_product"><%= image_tag("#{@featured_product.image_url}") %></div>
-	<div class="price">
-		<span class="price_tag">price: </span>
-		<span class="price_product"><%= @featured_product.price %> £</span>   
- 	</div>  
-</div>  
+<div id="carousel_container">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+   <%= render partial: 'landing_page' %>
+  </ol>
+
+  <div class="carousel-inner">
+   <% @products.each do |product| %>
+    <div class="carousel-item<%= " active" if product == @products.first %>">
+
+      <%= image_tag(product.image_url) %>
+
+     <div class="carousel-caption d-none d-md-block">
+      <p><%= product.name %></p>
+     </div>
+    </div>  
+   <% end %>
+  </div>
+
+   	  
+
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  
+</div>
+</div>
