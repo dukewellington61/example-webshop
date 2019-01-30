@@ -11,32 +11,46 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+<div class="container container_form">
+  <div class="row">
+    <div class="col-sm-8">
 
-  <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
-  </div>
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: 'form-control', type: 'text', id: 'name', placeholder: 'enter name of product', required: 'true'%>
+      </div>
 
-  <div class="field">
-  <%= form.label :colour %><br>
-  <%= form.text_field :colour %>
-  </div>
+      <div class="field">
+        <%= form.label :description %>
+        <%= form.text_area :description, class: 'form-control', type: 'text', id: 'description', placeholder: 'write a description but keep it snappy', required: 'true' %>
+      </div> 
 
-  <div class="field">
-  <%= form.label :price %><br>
-  <%= form.text_field :price %>
-  </div>
+      <div class="actions">
+      <%= form.submit%>
+      </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    </div>
+  
+    <div class="col-sm-4">
+
+      <div class="field">
+        <%= form.label :image_url %>
+        <%= form.text_field :image_url, class: 'form-control', type: 'text',placeholder: 'enter an image URL', id: 'image', required: 'true' %>
+      </div>
+
+      <div class="field">
+      <%= form.label :colour %>
+      <%= form.text_field :colour, class: 'form-control', type: 'text', id: 'colour', placeholder: 'enter a colour', required: 'true' %>
+      </div>
+
+      <div class="field">
+      <%= form.label :price %>
+      <%= form.text_field :price, class: 'form-control', type: 'float', id: 'price', placeholder: 'enter the price', required: 'true' %>
+      </div>   
+    </div>
   </div>
+</div>
 <% end %>
+
+      

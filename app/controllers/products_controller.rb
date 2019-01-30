@@ -4,8 +4,13 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+  if params[:q]
+    search_term = params[:q]
+    @products = Product.search(search_term)
+  else
     @products = Product.all
   end
+end
 
   # GET /products/1
   # GET /products/1.json
@@ -21,14 +26,14 @@ class ProductsController < ApplicationController
   def edit
   end
 
-  # POST /products
+  # POST /productss
   # POST /products.json
   def create
     @product = Product.new(product_params)
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to "/simple_pages/landing_page", notice: 'Product was successfully created.' }
+        format.html { redirect_to "/products", notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
