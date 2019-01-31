@@ -24,11 +24,7 @@
       <div class="field">
         <%= form.label :description %>
         <%= form.text_area :description, class: 'form-control', type: 'text', id: 'description', placeholder: 'write a description but keep it snappy', required: 'true' %>
-      </div> 
-
-      <div class="actions">
-      <%= form.submit%>
-      </div>
+      </div>       
 
     </div>
   
@@ -47,7 +43,12 @@
       <div class="field">
       <%= form.label :price %>
       <%= form.text_field :price, class: 'form-control', type: 'float', id: 'price', placeholder: 'enter the price', required: 'true' %>
-      </div>   
+      </div> 
+
+      <div class="actions">
+      <%= form.submit 'Create Product', class: 'btn btn-primary' %>
+      </div>
+
     </div>
   </div>
 </div>
