@@ -159,3 +159,20 @@ footer {
      background-color: rgba(46, 49, 49, 0.5);
      margin: 0 auto;
 }
+
+//contact
+
+.email_form {
+	position: relative;
+	margin: 0 auto;
+	max-width: 400px;
+}
+
+//tank_you.thml.erb
+
+.panel-default {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+}
