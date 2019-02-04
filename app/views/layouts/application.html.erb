@@ -21,6 +21,14 @@
 
 <body>
 
+    <% if notice %>
+        <p id="notice" class="alert alert-primary"><%= notice %></p>
+    <% end %>
+
+    <% if alert %>
+        <p id="alert" class="alert alert-primary"><%= alert %></p>
+    <% end %>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
        <%= link_to "Duke.Wellington.Example.Web.Shop", simple_pages_landing_page_path, class: "nav-link" %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,8 +77,6 @@
 <% end %>
   </div>
 </nav>
-
-<p class="notice"><%= notice %></p>
 
 <div id="yield">
     <%= yield %>
@@ -125,6 +131,8 @@
   </footer>
   
   <!-- Footer -->
-    
+
+  
+
 </body>
 </html>
