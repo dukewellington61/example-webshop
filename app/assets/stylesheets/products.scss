@@ -2,10 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-img {
-  width: 300px;
-}
-
 //index.html.erb
 
 #yield h1 {
@@ -104,24 +100,24 @@ img {
   height:80px;
 }
 
-@media (max-width: 450px) {
-  .image_show img  {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 50px;
-    max-width: 100%;
-    max-height: 100%;
-    margin: auto;
-    overflow: auto;
-  }
-}
+// @media (max-width: 450px) {
+//   .image_show img  {
+//     position: fixed;
+//     left: 0;
+//     right: 0;
+//     top: 50px;
+//     max-width: 100%;
+//     max-height: 100%;
+//     margin: auto;
+//     overflow: auto;
+//   }
+// }
 
-@media (max-width: 450px) {
-  .product_info {
-    top: 330px;
-  }
-}
+// @media (max-width: 450px) {
+//   .product_info {
+//     top: 330px;
+//   }
+// }
 
 @media (max-width: 450px){
 .links_product {
