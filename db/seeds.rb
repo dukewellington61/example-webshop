@@ -3,19 +3,7 @@ User.create!([
   {first_name: nil, last_name: nil, email: "andreas_koeth@gmx.de", encrypted_password: "$2a$11$.BJNMRUBDEBiwR2sh9vRaO.tGmkr4bf1anOyP5pOHKblLnVUbh5t6", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil},
   {first_name: nil, last_name: nil, email: "johndoe@randomuser.com", encrypted_password: "$2a$11$XjzMme.ue0eNbeuIsKguHupxc6tOyasSO1eIrersbdhfQm//Nn8O6", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil}
 ])
-Comment.create!([
-  {user_id: 1, body: "bad", rating: 1, product_id: 1},
-  {user_id: 1, body: "nice", rating: 4, product_id: 1},
-  {user_id: 1, body: "meh", rating: 2, product_id: 1},
-  {user_id: 1, body: "What a great bike! ", rating: 5, product_id: 1},
-  {user_id: 1, body: "This bike sucks!!", rating: 0, product_id: 1},
-  {user_id: 1, body: "This bike does the job but I wouldn't call it great.", rating: 2, product_id: 1},
-  {user_id: 1, body: "This Bicycle is bike is an absolutely wonderful piece of machinery. Marvelous! Spectacular!", rating: 5, product_id: 1},
-  {user_id: 1, body: "This thing is way to fast. Not my cup of coffee.", rating: 2, product_id: 4}
-])
-Order.create!([
-  {user_id: 1, product_id: 1, total: 10.0},
-  {user_id: 1, product_id: 3, total: 5.0}
+
 ])
 Product.create!([
   {name: "Mountain Challenger", description: "Sleek yet Robust - Perfect for high speed downhill rides of the breakneck variety!", image_url: "adventure-beach-bicycle-462036.jpg", colour: "black", price: "949.95"},
