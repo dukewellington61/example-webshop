@@ -27,9 +27,25 @@
 			    <span class="price_product"><%= @product.price %> £</span>
 		 </div>
 <hr>
-	 
+    <div id="user_comment">
+          <p class="comment_header">What our customers have to say:</p>
+         <p class="comment_text">
+           <% if @product.highest_rating_comment==nil%>
+             no review yet
+           <% else %>
+           <%=@product.highest_rating_comment.body %>
+           <%end%>
+         </p>
+         <p class="comment_text">
+           <% if @product.lowest_rating_comment==nil%>
+             no review yet
+           <% else %>
+           <%=@product.lowest_rating_comment.body %>
+           <%end%>
+         </p>
+
         <div>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div> </div>
-  </div>
+   </div>
 
 </div>
 </div>
