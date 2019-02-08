@@ -6,7 +6,12 @@ User.create!([
 Comment.create!([
   {user_id: 1, body: "bad", rating: 1, product_id: 1},
   {user_id: 1, body: "nice", rating: 4, product_id: 1},
-  {user_id: 1, body: "meh", rating: 2, product_id: 1}
+  {user_id: 1, body: "meh", rating: 2, product_id: 1},
+  {user_id: 1, body: "What a great bike! ", rating: 5, product_id: 1},
+  {user_id: 1, body: "This bike sucks!!", rating: 0, product_id: 1},
+  {user_id: 1, body: "This bike does the job but I wouldn't call it great.", rating: 2, product_id: 1},
+  {user_id: 1, body: "This Bicycle is bike is an absolutely wonderful piece of machinery. Marvelous! Spectacular!", rating: 5, product_id: 1},
+  {user_id: 1, body: "This thing is way to fast. Not my cup of coffee.", rating: 2, product_id: 4}
 ])
 Order.create!([
   {user_id: 1, product_id: 1, total: 10.0},
