@@ -3,9 +3,9 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user (not logged in)
-    can :read, :all
-    end
+    can :manage, :all
   end
+end
 
     # Define abilities for the passed in user here. For example:
     #
