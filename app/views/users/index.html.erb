@@ -12,6 +12,12 @@
   </thead>
 
   <tbody>
+      <% if signed_in? && current_user.admin? %>
+      <td> Logged in as Admin <%= current_user.first_name %> <%= current_user.last_name %></td>
+      <% else %>
+      <td> Logged in as User <%= current_user.first_name %> <%= current_user.last_name %></td>
+      <% end %>
+
     <% @users.each do |user| %>
       <tr>
         <td><%= user.first_name %></td>
