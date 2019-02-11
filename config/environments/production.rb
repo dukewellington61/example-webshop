@@ -103,7 +103,7 @@ Rails.application.configure do
   :from                 => 'andreas_koeth@gmx.de',
   :user_name            => ENV['SENDGRID_USERNAME'],
   :password             => ENV['SENDGRID_PASSWORD'],
-  :domain               => 'https://duke-wellington-example-app.herokuapp.com',
+  :domain               => 'heroku.com',
   :address              => 'smtp.sendgrid.net',
   :port                 => 587,
   :authentication       => :plain,
