@@ -4,6 +4,17 @@
   <%= devise_error_messages! %>
 
 <div class="form_register">
+
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: 'form-control', required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: 'form-control', required: true %>
+  </div>
+
   <div class="field">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
