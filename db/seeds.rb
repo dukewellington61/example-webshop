@@ -1,6 +1,8 @@
 User.create!([
   {first_name: "Arthur ", last_name: "Wellesley", email: "dukewellington@gmx.de", encrypted_password: "$2a$11$INHxnwlVcvnuGLOcWB4qRuOyf.cx8qmpn7Jprv35h4Uu5mRP8BRRS", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: true},
-  {first_name: nil, last_name: nil, email: "andreas_koeth@gmx.de", encrypted_password: "$2a$11$Gc.5xJ3Y05x.FCgyJ3IuCeMXIPp4i0HhW7IMEtWKOlFQJAIey1kPu", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false}
+  {first_name: "aas", last_name: "AA", email: "johndoe@randomuser.com", encrypted_password: "$2a$11$SwmCPRPB3cCqh.aYPWsCleTTl8.IMR7oC8gk609Zq/B31rjgJz8vW", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false},
+  {first_name: "a", last_name: "a", email: "test.user@test.de", encrypted_password: "$2a$11$dXaGYix.Lf58ZORXOSarzenvkmAvzuJ88C.N1BUB9ZnY9MLBIGMAG", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false},
+  {first_name: "drg", last_name: "dfg", email: "andreas@admin.de", encrypted_password: "$2a$11$njY4lPtnaIFRirY2S5PlRuD8uxROajgipFV0DfnVfy2cvNkZAtuJC", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false}
 ])
 Comment.create!([
   {user_id: 1, body: "nice", rating: 4, product_id: 1},

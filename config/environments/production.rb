@@ -65,6 +65,10 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  config.action_mailer.default_url_options = { host: "duke-wellington-example-app.herokuapp.com" }
+
+
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
@@ -91,23 +95,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  config.action_mailer.default_url_options = { host: "duke-wellington-example-app.herokuapp.com" }
-
-  # Setup the mailer config
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default :charset => "utf-8"
-  ActionMailer::Base.smtp_settings = {
-  :from                 => 'andreas_koeth@gmx.de',
-  :user_name            => ENV['SENDGRID_USERNAME'],
-  :password             => ENV['SENDGRID_PASSWORD'],
-  :domain               => 'duke-wellington-example-app.herokuapp.com',
-  :address              => 'smtp.sendgrid.net',
-  :port                 => 587,
-  :authentication       => :plain,
-  :enable_starttls_auto => true
-}
 
 end
