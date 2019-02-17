@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :must_be_admin, only: [:edit, :destroy, :new]
+
 
   # GET /products
   # GET /products.json
@@ -72,6 +74,12 @@ end
     def set_product
       @product = Product.find(params[:id])
     end
+
+    def must_be_admin
+    unless current_user && current_user.admin?
+      redirect_to products_path, notice: "This is only for Admins"
+    end
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params

@@ -14,7 +14,8 @@ Comment.create!([
   {user_id: 1, body: "what a shit bike. I am so angry with it. grrrrrrrrrrrrrr!", rating: 1, product_id: 4},
   {user_id: 1, body: "Faster than lightning! I'm liking it!!!", rating: 5, product_id: 3},
   {user_id: 1, body: "It doesn't even have pedals.", rating: nil, product_id: 3},
-  {user_id: nil, body: "fuckyou", rating: 1, product_id: 1}
+  {user_id: nil, body: "fuckyou", rating: 1, product_id: 1},
+  {user_id: 65, body: "Someone I had fell from this bike and broke his neck!", rating: 5, product_id: 5}
 ])
 Order.create!([
   {user_id: 1, product_id: 1, total: 10.0},
