@@ -34,7 +34,7 @@ describe CommentsController, type: :controller do
         sign_in user_admin
       end # before block
 
-      it "can delete a review for a product" do
+      it "can destroy a review for a product" do
         delete :destroy, params: { product_id: product.id, id: comment.id }
         expect(response).to have_http_status(302)
       end #1 st spec
