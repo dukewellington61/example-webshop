@@ -17,8 +17,7 @@ describe CommentsController, type: :controller do
     context 'when a user is not logged in' do
 
       it "cannot write a review for a product" do
-        @comment = FactoryBot.create(:comment)
-        expect(Comment.new).not_to be_valid
+        expect{ post :create, comment: FactoryBot.attributes_for(:comment)}.to_not change(Comment, :count)
       end #1 st spec
     end # 1st context
 
@@ -30,8 +29,7 @@ describe CommentsController, type: :controller do
       end # before block
 
       it "can write a review for a product" do
-        @comment = FactoryBot.create(:comment)
-        expect(response).to be_successful
+        expect{ post :create, comment: FactoryBot.attributes_for(:comment)}.to change(Comment, :count).by(1)
       end #1 st spec
     end # 2nd context
 
@@ -43,8 +41,7 @@ describe CommentsController, type: :controller do
       end # before block
 
       it "can destroy a review for a product" do
-        delete :destroy, params: { id: @comment.id}
-        expect(response).to be_successful
+        expect{ delete :destroy, params: { id: @comment.id, product_id: @product.id } }.to change(Comment, :count).by(-1)
 
       end #1 st spec
     end # 3rd context
