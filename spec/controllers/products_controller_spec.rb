@@ -1,29 +1,31 @@
 require 'rails_helper'
 
 describe ProductsController, type: :controller do
-  let(:user_admin) { User.create!(first_name: 'George', last_name: 'ThePrinceofWales', email: 'PrinceGeorgy@example.com', password: '1234567890', admin: true) }
-  let(:product) { Product.create!(name: "Mountain Challenger") }
 
+  before do
+    @product = FactoryBot.create(:product)
+    @user = FactoryBot.create(:admin)
+  end
 
   describe "products" do
 
     context 'only when user is logged in as admin' do
 
       before do
-        sign_in user_admin
+        sign_in @user
       end # before bloc
 
       it "can edit a product" do
-        get :edit, params: {id: product.id}
+        get :edit, params: {id: @product.id}
         expect(response).to be_ok
-        expect(assigns(:product)).to eq product
+        expect(assigns(:product)).to eq @product
       end #1 st spec
 
 
       it "can delete a product" do
-        delete :destroy, params: { id: product.id }
+        delete :destroy, params: { id: @product.id }
         expect(response).to have_http_status(302)
-        expect(assigns(:product)).to eq product
+        expect(assigns(:product)).to eq @product
       end #2 nd spec
 
 
