@@ -6,8 +6,6 @@ FactoryBot.define do
     association :product
 
     body {"I am the body"}
-    rating {5}
-    user_id {user.id}
-    product_id {product.id}
+    rating {5}    
   end
 end

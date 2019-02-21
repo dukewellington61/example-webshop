@@ -9,15 +9,14 @@ describe CommentsController, type: :controller do
     @comment = FactoryBot.create(:comment)
   end
 
-
-
   describe "product reviews" do
 
 
     context 'when a user is not logged in' do
 
       it "cannot write a review for a product" do
-        expect{ post :create, comment: FactoryBot.attributes_for(:comment)}.to_not change(Comment, :count)
+          post :create, params: { comment: FactoryBot.attributes_for(:comment, user: @user, product: @product), product_id: @product.id }
+          expect(response).not_to be_ok
       end #1 st spec
     end # 1st context
 
@@ -29,8 +28,12 @@ describe CommentsController, type: :controller do
       end # before block
 
       it "can write a review for a product" do
-        expect{ post :create, comment: FactoryBot.attributes_for(:comment)}.to change(Comment, :count).by(1)
+        expect { post :create, params: { comment: FactoryBot.attributes_for(:comment, user: @user, product: @product), product_id: @product.id }}.to change(Comment, :count).by(1)
       end #1 st spec
+
+      it "cannot destroy a review for a product" do
+        expect { delete :destroy, params: { id: @comment.id, product_id: @product.id } }.not_to change(Comment, :count)
+      end #2nd spec
     end # 2nd context
 
 
@@ -41,8 +44,7 @@ describe CommentsController, type: :controller do
       end # before block
 
       it "can destroy a review for a product" do
-        expect{ delete :destroy, params: { id: @comment.id, product_id: @product.id } }.to change(Comment, :count).by(-1)
-
+        expect { delete :destroy, params: { id: @comment.id, product_id: @product.id } }.to change(Comment, :count).by(-1)
       end #1 st spec
     end # 3rd context
 

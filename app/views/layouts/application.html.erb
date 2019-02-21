@@ -40,7 +40,7 @@
       <li class="nav-item">
         <%= link_to "About", simple_pages_about_path, class: "nav-link" %>
       </li>
-  
+
       <li class="nav-item">
         <%= link_to "Products", products_path, class: "nav-link" %>
       </li>
@@ -48,7 +48,7 @@
       <li class="nav-item">
          <%= link_to "Orders", orders_path, class: "nav-link" %>
       </li>
-      
+
       <li class="nav-item">
         <%= link_to "Contact", simple_pages_contact_path, class: "nav-link" %>
       </li>
@@ -66,14 +66,20 @@
             <li class="nav-item">
               <%= link_to('Login', new_user_session_path, class: "nav-link") %>
             </li>
-        <% end %>            
+        <% end %>
     </ul>
 
-
-
-    <%= form_with(url: products_path, method: 'get', local: true) do |form| %>    
+    <%= form_with(url: products_path, method: 'get', local: true) do |form| %>
     <%= form.text_field :q, id: 'q', value: params[:q] %>
     <%= form.submit 'Search' %>
+
+    <% if signed_in? && current_user.admin? %>
+      <td>Admin: <%= current_user.first_name %> <%= current_user.last_name %></td>
+    <% elsif signed_in? %>
+      <td>User: <%= current_user.first_name %> <%= current_user.last_name %></td>
+    <% else%>
+      No user logged in.
+    <% end %>
 <% end %>
   </div>
 </nav>
@@ -129,10 +135,10 @@
     <!-- Copyright -->
 
   </footer>
-  
+
   <!-- Footer -->
 
-  
+
 
 </body>
 </html>
