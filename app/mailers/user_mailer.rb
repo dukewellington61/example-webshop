@@ -15,4 +15,11 @@ end
          subject: "Welcome to #{@appname}!")
   end
 
+  def order_placed(user, product)
+      @user = user
+      @product = product
+      mail(to: user.email,
+        subject: "Order received. Payment acknowledged. #{@product} is on it's way. Thank you!")
+    end
+
 end
