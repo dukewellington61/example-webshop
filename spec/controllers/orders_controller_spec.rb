@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe OrdersController, type: :controller do
   let(:user) { User.create!(first_name: "Arthur ", last_name: "Wellesley", email: "dukewellington@gmx.de", password: "123456", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: true) }
-  let(:product) { Product.create!(name: "Mountain Challenger") }
+  let(:product) { Product.create!(name: "Mountain Challenger", price: 200) }
   let(:order) {Order.create!(user_id: 1, product_id: product.id, total: 1)}
 
   describe 'GET #index' do

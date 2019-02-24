@@ -20,6 +20,6 @@ end
       @product = product
       mail(to: user.email,
         subject: "Order received. Payment acknowledged. #{@product} is on it's way. Thank you!")
-    end
+  end
 
 end
