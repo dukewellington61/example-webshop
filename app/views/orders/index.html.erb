@@ -1,5 +1,9 @@
+
+
+
 <div class="row">
   <% @orders.each do |order| %>
+  <% logger.debug %>
     <div class="col-sm">
       <h1>
         Order # <%= order.id %>:
@@ -10,5 +14,3 @@
     </div><!-- /col -->
   <% end %>
 </div>
-
-
