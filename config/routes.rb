@@ -4,6 +4,12 @@ devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' 
 
   resources :products do
   resources :comments
+
+end
+
+  resources :products do
+  resources :orders
+
 end
 
 resources :users
