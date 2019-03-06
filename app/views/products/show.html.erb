@@ -1,64 +1,17 @@
-<div>
-<div class="container container_form">
-  <div class="row">
-    <div class="product_img col-sm-7">
 
-		    <div class="img-fluid image_show"><%= image_tag(@product.image_url, class: "img-zoom", data_zoom_image:"@product.image_url") %></div>
-
-			     <div class="links_product">
-		  	 	      <a class="btn btn-sm btn-primary btn_product_index" id="show_product" <%= link_to 'Edit', edit_product_path(@product) %></a>
-		   		      <a class="btn btn-sm btn-primary btn_product_index" id="edit_product" <%= link_to 'Back', products_path %></a>
-			     </div>
-
-    </div>
-
-    <div class="product_info col-sm-5">
-
-    	<div class="name_product"><%= @product.name %></div>
-
-		  <div class="description_product"><%= @product.description %></div>
-
-		  <div class="colour">
-			     <span class="color_tag">colour: </span>
-			     <span class="color_product"><%= @product.colour %></span>
-		  </div>
-
-		 <div class="price">
-			    <span class="price_tag">price: </span>
-			    <span class="price_product"><%= @product.price %> £</span>
-		 </div>
-<hr>
-    <% if @product.comments.length > 1 %>
-      <div id="user_comment">
-            <p class="comment_header">What our customers have to say:</p>
-              <p class="comment_text">
-                  <%= @product.highest_rating_comment.body %>
-             </p>
-             <p class="comment_text">
-                  <%= @product.lowest_rating_comment.body %>
-            </p>
-
-          <div>Average Rating: <div class="rated" id="average_rating" data-score="<%= @product.average_rating %>"></div> </div>
-      </div>
-   <%end%>
-<br>
-   <div class = "payment_button">
-   <%= form_with(url: '/payments/create') do |form| %>
-   <%= form.hidden_field :product_id, value: @product.id %>
-     <%= render partial: "shared/stripe_checkout_button" %>
-   <% end %>
-   </div>
-
-</div>
-</div>
-
+<% cache @product do %>
+<%= render 'show' %>
+<% end %>
 
 <div class="row">
   <div class="col-sm-8">
     <%= render 'new_comment' %>
   </div>
-  <div class="col-sm-4">
-  	<%= render 'comments' %>  	
+
+  <div class="col-sm-4">  
+  <% cache @comments do %> 
+  	<%= render 'comments' %>  
+  <% end %>   
     <%= will_paginate @comments %>
   </div>  
 </div>
