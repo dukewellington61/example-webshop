@@ -8,11 +8,12 @@
     <%= render 'new_comment' %>
   </div>
 
-  <div class="col-sm-4">  
-  <% cache @comments do %> 
+  <div class="col-sm-4"> 
+   <div class="alert alert-info" style="display:none" role="alert">A new comment was 	posted!</div> 
+    <% cache @comments do %> 
   	<%= render 'comments' %>  
-  <% end %>   
+    <% end %>   
     <%= will_paginate @comments %>
-  </div>  
+   </div>  
 </div>
 

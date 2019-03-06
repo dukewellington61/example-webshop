@@ -25,6 +25,8 @@ resources :users
   post 'payments/create'
   resources :orders, only: [:index, :show, :create, :destroy]
 
+  mount ActionCable.server => '/cable'
+
 
 
 
