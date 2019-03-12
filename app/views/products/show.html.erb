@@ -1,7 +1,6 @@
 
-<% cache @product do %>
+
 <%= render 'show' %>
-<% end %>
 
 <div class="row">
   <div class="col-sm-8">
@@ -10,9 +9,9 @@
 
   <div class="col-sm-4"> 
    <div class="alert alert-info" style="display:none" role="alert">A new comment was 	posted!</div> 
-    <% cache @comments do %> 
+     
   	<%= render 'comments' %>  
-    <% end %>   
+       
     <%= will_paginate @comments %>
    </div>  
 </div>

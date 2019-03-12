@@ -4,36 +4,65 @@ describe ProductsController, type: :controller do
 
   before do
     @product = FactoryBot.create(:product)
-    @user = FactoryBot.create(:admin)
+    @admin = FactoryBot.create(:admin)
   end
 
   describe "products" do
 
+    context "when a user is not logged in" do
+
+      it "can access index" do
+        get :index
+        expect(response).to have_http_status(200)
+      end
+
+      it "can access show" do
+        get :show, params: { id: @product.id } 
+        expect(response).to have_http_status(200)
+      end
+
+    end
+
     context 'only when user is logged in as admin' do
 
       before do
-        sign_in @user
-      end # before bloc
+        sign_in @admin
+      end 
 
-      it "can edit a product" do
-        get :edit, params: {id: @product.id}
-        expect(response).to be_ok
-        expect(assigns(:product)).to eq @product
-      end #1 st spec
+      it "can access edit" do
+        get :edit, params: { id: @product.id }
+        expect(response).to render_template('edit')
+      end
 
+      it "can update a product" do
+         put :update, params: { id: @product.id, product: { name: "Edited Name", description: "Edited", price: 200 } }
+         @product.reload
+         expect(@product.description).to eq("Edited")
+         expect(response).to redirect_to @product
+      end 
 
       it "can delete a product" do
         delete :destroy, params: { id: @product.id }
         expect(response).to have_http_status(302)
         expect(assigns(:product)).to eq @product
-      end #2 nd spec
+      end 
 
+      it "can access new" do
+        get :new
+        expect(response).to render_template('new')
+      end
 
       it "can create a new product" do
-        get :new, params: {name: "Mountain Challenger"}
-        expect(response).to have_http_status(200)
-    end #3 rd spec
-  end # 1st context
+        expect { post :create, params: { product: FactoryBot.attributes_for(:product, name: "some bike", price: 1500), product_id: @product.id }}.to change(Product, :count).by(1)
+      end 
+    end 
 
-  end # 2nd describe
-end # 1st describe
+    context 'search function' do
+
+      it "returns the matching product" do
+        @result = Product.search("Mountain Challenger")
+        expect(@result).to eq(@product.name)
+      end
+    end
+  end 
+end 
