@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }, controllers: { registrations: "user_registrations" }
+  resources :line_items
+  resources :carts
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }, controllers: { registrations: "user_registrations" }
 
 
   resources :products do

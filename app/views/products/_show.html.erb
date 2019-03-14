@@ -42,6 +42,9 @@
           <div>Average Rating: <div class="rated" id="average_rating" data-score="<%= @product.average_rating %>"></div> </div>
       </div>
    <%end%>
+
+   <%= button_to 'Add to Cart', line_item_path(product_id: @product), class: 'button is-warning add-to-cart' %>
+
 <br>
    <div class = "payment_button">
    <%= form_with(url: '/payments/create') do |form| %>
@@ -52,4 +55,3 @@
 
 </div>
 </div>
-

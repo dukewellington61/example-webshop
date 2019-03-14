@@ -1,4 +1,7 @@
 class Product < ApplicationRecord
+ before_destroy :not_referenced_by_any_line_item
+ has_many :line_items
+ has_many :carts
  has_many :orders, dependent: :destroy
  has_many :comments, dependent: :destroy
 
@@ -25,6 +28,15 @@ end
 
 def average_rating
   comments.average(:rating).to_f
+end
+
+private
+
+def not_referenced_by_any_line_item
+  unless line_items.empty?
+    errors.add(:base, "Line items present")
+    throw :abort
+  end
 end
 
 end
