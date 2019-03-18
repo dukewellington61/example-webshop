@@ -1,4 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
+<h1>Shopping Cart</h1>
+
+<% @cart.line_items.each do |line_item| %>
+
+<div>
+<%= line_item.quantity %>
+</div>
+<div>
+<%= line_item.product.name %>
+</div>
+<div>
+<%= line_item.product.description %>
+</div>
+<div>
+<%= number_to_currency(line_item.product.price, unit: :£) %>
+</div>
+
+<%end%>
+<br>
+<div>
+  Total:
+<%= number_to_currency(@cart.total_price, unit: :£) %>
+</div>
+
+
+
+<%= link_to 'Empty Cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Back', carts_path %>
