@@ -55,12 +55,17 @@
 
     </ul>
 
+    <% if @cart != nil %>
+    <%= @cart.id  %>
+    <% else %>
+    <% end %>
+
     <% if @cart.line_items.count == 0 %>
 
     <%= link_to products_path, class:"navbar-item button is-warning" do %>
              <span class="icon is-small">
                <i class="fa fa-shopping-cart"></i
-          <% end %>
+    <% end %>
 
     <% else %>
 
@@ -102,7 +107,8 @@
     <% else%>
       No user logged in.
     <% end %>
-<% end %>
+  <% end %>
+
   </div>
 </nav>
 
