@@ -1,0 +1,7 @@
+<tr>
+  <td>Cart_id:<%= cart.id %></td>
+  <td>User_id:<%= cart.user_id %></td>
+  <td><%= link_to 'Show', cart %></td>
+  <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
+  <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

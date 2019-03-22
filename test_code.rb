@@ -10,22 +10,12 @@ module CurrentCart
 
   else
 
-  if user_signed_in? && session[:cart_id] == nil
-
-      flash[:notice] = "RESCUE"
-
-      @cart = Cart.create
-      session[:cart_id] = @cart.id
-      @cart.user_id = current_user.id
-      @cart.save
-
-  else
-
   if user_signed_in? && current_user.carts.none?
 
     flash[:notice] = "Already existing session cart assigned to new user"
 
-      @cart = Cart.find(session[:cart_id])
+      @cart = Cart.create
+      session[:cart_id] = @cart.id
       @cart.user_id = current_user.id
       @cart.save
 
@@ -53,4 +43,3 @@ module CurrentCart
   end
   end
   end
-end

@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :products
   has_many :comments, dependent: :nullify
   has_many :carts
-
   validates :first_name, presence: true
   validates :last_name, presence: true
 

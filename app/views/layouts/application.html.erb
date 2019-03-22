@@ -56,25 +56,27 @@
     </ul>
 
     <% if @cart != nil %>
-    <%= @cart.id  %>
-    <% else %>
-    <% end %>
+   <%= @cart.id  %>
+   <% else %>
+   <% end %>
 
-    <% if @cart.line_items.count == 0 %>
+   <% if @cart.line_items.count == 0 %>
 
-    <%= link_to products_path, class:"navbar-item button is-warning" do %>
-             <span class="icon is-small">
-               <i class="fa fa-shopping-cart"></i
-    <% end %>
+   <%= link_to products_path, class:"navbar-item button is-warning" do %>
+            <span class="icon is-small">
+              <i class="fa fa-shopping-cart"></i
+   <% end %>
 
-    <% else %>
+   <% else %>
 
-    <%= link_to cart_path(@cart), class:"navbar-item button is-warning" do%>
-             <span class="icon is-small">
-               <i class="fa fa-shopping-cart"></i>
-               <span><%= @cart.line_items.count %></span>
-    <% end %>
-    <% end %>
+   <%= link_to cart_path(@cart), class:"navbar-item button is-warning" do%>
+            <span class="icon is-small">
+              <i class="fa fa-shopping-cart"></i>
+              <span><%= @cart.line_items.count %></span>
+   <% end %>
+   <% end %>
+
+
 
 
 
