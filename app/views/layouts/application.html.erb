@@ -60,7 +60,7 @@
    <% else %>
    <% end %>
 
-   <% if @cart.line_items.count == 0 %>
+   <% if @cart.line_items == nil %>
 
    <%= link_to products_path, class:"navbar-item button is-warning" do %>
             <span class="icon is-small">
