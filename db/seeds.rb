@@ -1,7 +1,44 @@
 User.create!([
   {first_name: "Arthur ", last_name: "Wellesley", email: "dukewellington@gmx.de", encrypted_password: "$2a$11$INHxnwlVcvnuGLOcWB4qRuOyf.cx8qmpn7Jprv35h4Uu5mRP8BRRS", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: true},
   {first_name: "Peter", last_name: "Pupsmann", email: "andreas@admin.de", encrypted_password: "$2a$11$njY4lPtnaIFRirY2S5PlRuD8uxROajgipFV0DfnVfy2cvNkZAtuJC", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false},
-  {first_name: "Arsch", last_name: "Kopp", email: "arschkopf@fookoonudel.com", encrypted_password: "$2a$11$9aUBzC4gSpWA5mycHlEjPuv4BClXuydh.S5aBjB6bjFkZ.bTn1z4a", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false}
+  {first_name: "Arsch", last_name: "Kopp", email: "arschkopf@fookoonudel.com", encrypted_password: "$2a$11$9aUBzC4gSpWA5mycHlEjPuv4BClXuydh.S5aBjB6bjFkZ.bTn1z4a", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false},
+  {first_name: "John", last_name: "Doe", email: "johndoe@randomuser.com", encrypted_password: "$2a$11$4TxbnptUSuWatrZQPJ.Z..oAL/8I5VUUEwCth3X/U3aIwMCIL/Luq", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false},
+  {first_name: "1", last_name: "2", email: "1@2.com", encrypted_password: "$2a$11$y64JRuYMzA4qAW4pm2zX5.nYuxpMDJARQ/7lmkVFkzGseerwMp7vm", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false},
+  {first_name: "Lulli", last_name: "Mann", email: "lulli@mann.com", encrypted_password: "$2a$11$yVHEAe3EPGtVcLQLeb91p.OD3vbEnmS40PPueUShAwoFVVoCNJ31G", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false}
+])
+Cart.create!([
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: 84},
+  {user_id: 87},
+  {user_id: nil}
 ])
 Comment.create!([
   {user_id: 1, body: "nice", rating: 4, product_id: 1},
@@ -33,7 +70,19 @@ Comment.create!([
   {user_id: 1, body: "geilie!", rating: 5, product_id: 1}
 ])
 LineItem.create!([
-  {cart_id: nil, quantity: 1, product_id: 1}
+  {cart_id: nil, quantity: 1, product_id: 1},
+  {cart_id: nil, quantity: 1, product_id: 1},
+  {cart_id: nil, quantity: 1, product_id: 1},
+  {cart_id: nil, quantity: 1, product_id: 1},
+  {cart_id: nil, quantity: 1, product_id: 1},
+  {cart_id: nil, quantity: 1, product_id: 1},
+  {cart_id: 830, quantity: 1, product_id: 1},
+  {cart_id: 832, quantity: 1, product_id: 1},
+  {cart_id: 834, quantity: 1, product_id: 1},
+  {cart_id: 837, quantity: 1, product_id: 1},
+  {cart_id: 850, quantity: 1, product_id: 1},
+  {cart_id: 859, quantity: 1, product_id: 1},
+  {cart_id: 891, quantity: 1, product_id: 1}
 ])
 Order.create!([
   {user_id: 1, product_id: 1, total: 10.0},
