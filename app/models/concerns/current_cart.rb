@@ -23,11 +23,12 @@ module CurrentCart
 
   if user_signed_in? && current_user.line_items.none?
 
-    flash[:notice] = "Already existing session cart assigned to new user"
+    flash[:notice] = "Already existing session cart assigned to user"
 
       @cart = Cart.find(session[:cart_id])
       @cart.user_id = current_user.id
       @cart.save
+      old_cart_set_nil
 
   else
 
@@ -50,5 +51,12 @@ module CurrentCart
   end
   end
 
+def old_cart_set_nil
+  oldcart = Cart.where(:user_id => current_user.id)
+  if oldcart.count > 1
+  oldcart.sort_by &:created_at
+  oldcart.update_all(:user_id => nil)
+end
+end
 
 end
