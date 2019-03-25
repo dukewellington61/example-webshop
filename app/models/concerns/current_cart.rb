@@ -1,5 +1,7 @@
 module CurrentCart
 
+
+
   def set_cart
 
   if user_signed_in? && current_user.line_items.any?
@@ -28,7 +30,8 @@ module CurrentCart
       @cart = Cart.find(session[:cart_id])
       @cart.user_id = current_user.id
       @cart.save
-      old_cart_set_nil
+      old_user_cart_set_nil
+      old_carts_destroy
 
   else
 
@@ -51,12 +54,18 @@ module CurrentCart
   end
   end
 
-def old_cart_set_nil
-  oldcart = Cart.where(:user_id => current_user.id)
-  if oldcart.count > 1
-  oldcart.sort_by &:created_at
-  oldcart.update_all(:user_id => nil)
-end
+def old_user_cart_set_nil
+  old_user_cart = Cart.where(:user_id => current_user.id)
+  if old_user_cart.count > 1
+  old_user_cart.update_all(:user_id => nil)
 end
 
+def old_carts_destroy
+  old_carts = Cart.where(:user_id => nil)
+  if old_carts.count > 2
+  old_carts.order("created_at asc")
+  old_carts.offset(2).first.destroy
+end
+end
+end
 end
