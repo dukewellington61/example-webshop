@@ -14,12 +14,19 @@ Cart.create!([
   {user_id: 5},
   {user_id: 5},
   {user_id: 5},
-  {user_id: 1},
-  {user_id: 93},
+  {user_id: nil},
+  {user_id: nil},
   {user_id: 5},
-  {user_id: 86},
   {user_id: 94},
-  {user_id: 89}
+  {user_id: 89},
+  {user_id: 93},
+  {user_id: 92},
+  {user_id: 86},
+  {user_id: 1},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil},
+  {user_id: nil}
 ])
 Comment.create!([
   {user_id: 1, body: "nice", rating: 4, product_id: 1},
@@ -52,7 +59,10 @@ Comment.create!([
 ])
 LineItem.create!([
   {cart_id: 940, quantity: 1, product_id: 1},
-  {cart_id: 1078, quantity: 1, product_id: 1}
+  {cart_id: 1176, quantity: 1, product_id: 1},
+  {cart_id: 1176, quantity: 2, product_id: 3},
+  {cart_id: 1179, quantity: 2, product_id: 1},
+  {cart_id: 1180, quantity: 1, product_id: 6}
 ])
 Order.create!([
   {user_id: 1, product_id: 1, total: 10.0},

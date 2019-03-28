@@ -1,6 +1,6 @@
 module CurrentCart
 
-
+  private
 
   def set_cart
 
@@ -55,16 +55,16 @@ module CurrentCart
   end
 
 def old_user_cart_set_nil
-  old_user_cart = Cart.where(:user_id => current_user.id)
+    old_user_cart = Cart.where(:user_id => current_user.id)
   if old_user_cart.count > 1
-  old_user_cart.update_all(:user_id => nil)
+    old_user_cart.update_all(:user_id => nil)
 end
 
 def old_carts_destroy
-  old_carts = Cart.where(:user_id => nil)
+    old_carts = Cart.where(:user_id => nil)
   if old_carts.count > 2
-  old_carts.order("created_at asc")
-  old_carts.offset(2).first.destroy
+    old_carts.order("created_at asc")
+    old_carts.offset(2).first.destroy
 end
 end
 end
