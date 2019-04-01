@@ -17,22 +17,44 @@ line_item_id: <%= line_item.id %>
 <div>
 product_id: <%= line_item.product_id %>
 </div>
-
+Price Item:
 <%= number_to_currency(line_item.product.price, unit: :£) %>
 
+Total Price Item:
+<%= number_to_currency(line_item.total_price_line_items, unit: :£) %>
 
 <%= button_to '-', line_item, method: :delete %>
-<%= button_to '+', line_items_path(product_id: line_item.product_id), method: :add_product %>
 
+<%= button_to '+', line_item_path(line_item.id), :method => :put %>
 
 <%end%>
 <br>
 <div>
   Total:
-<%= number_to_currency(@cart.total_price, unit: :£) %>
-
-
+<%= number_to_currency(@cart.total_price_cart, unit: :£) %>
 </div>
+
+<% if user_signed_in? && @cart.line_items.any?%>
+
+<div class = "payment_button">
+<%= form_with(url: '/payments/create') do |form| %>
+<%= form.hidden_field :cart_id, value: @cart.id %>
+<%= render partial: "shared/stripe_checkout_button" %>
+</div>
+
+<% end %>
+
+<% else %>
+
+<% if @cart.line_items.any?%>
+
+<div>
+<%= link_to('Login to pay', new_user_session_path, class: "btn btn-sm btn-primary btn_product_index") %>
+</div>
+<% end %>
+<% end %>
+
+
 
 
 

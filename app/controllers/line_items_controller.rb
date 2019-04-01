@@ -26,9 +26,17 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    product = Product.find(params[:product_id])
-    @line_item = @cart.add_product(product)
+    @cart = Cart.find(session[:cart_id])
+    selected_product = Product.find(params[:product_id])
 
+
+    if @cart.products.include?(selected_product)
+      @line_item = @cart.line_items.find_by(product_id: selected_product)
+      @line_item.quantity += line_item_params[:quantity].to_i
+     else
+      @line_item = @cart.line_items.create(line_item_params)
+    end
+      @line_item.save
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to @line_item.cart, notice: "Item added to cart." }
@@ -43,14 +51,13 @@ class LineItemsController < ApplicationController
   # PATCH/PUT /line_items/1
   # PATCH/PUT /line_items/1.json
   def update
+    @cart = Cart.find(session[:cart_id])
+    @line_item = LineItem.find_by_id(params[:id])
+    @line_item.increment(:quantity)
+    @line_item.save
     respond_to do |format|
-      if @line_item.update(line_item_params)
-        format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @line_item }
-      else
-        format.html { render :edit }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
-      end
+    format.html { redirect_to cart_path(@cart), notice: 'Line item was successfully updated.' }
+
     end
   end
 
@@ -59,8 +66,8 @@ class LineItemsController < ApplicationController
   def destroy
     @cart = Cart.find(session[:cart_id])
     @line_item = LineItem.find_by_id(params[:id])
-
-    if @cart.line_items_count > 1
+    
+    if @line_item.quantity > 1
       @line_item.decrement(:quantity)
       @line_item.save
       respond_to do |format|

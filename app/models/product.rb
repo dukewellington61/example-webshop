@@ -1,9 +1,10 @@
 class Product < ApplicationRecord
  before_destroy :not_referenced_by_any_line_item
  has_many :line_items
- has_many :carts
+ has_many :carts, through: :line_items
  has_many :orders, dependent: :destroy
  has_many :comments, dependent: :destroy
+ has_many :products, through: :line_items
 
  validates :name, presence: true
  validates :price, :numericality => {:greater_than => 0}

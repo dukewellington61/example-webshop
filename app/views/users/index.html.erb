@@ -23,15 +23,15 @@
           <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
     <% end %>
-    <% else%>
-    <tr>
-      <td><%= current_user.first_name %></td>
-      <td><%= current_user.last_name %></td>
-      <td><%= current_user.email %></td>
-      <td><%= link_to 'Show', current_user %></td>
-      <td><%= link_to 'Edit', edit_user_path(current_user) %></td>
-      <td><%= link_to 'Destroy', current_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+    <% else %>
+        <tr>
+          <td><%= current_user.first_name %></td>
+          <td><%= current_user.last_name %></td>
+          <td><%= current_user.email %></td>
+          <td><%= link_to 'Show', current_user %></td>
+          <td><%= link_to 'Edit', edit_user_path(current_user) %></td>
+          <td><%= link_to 'Destroy', current_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
     <% end %>
   </tbody>
 </table>

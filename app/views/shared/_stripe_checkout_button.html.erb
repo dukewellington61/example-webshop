@@ -1,9 +1,8 @@
 <script
   src="https://checkout.stripe.com/checkout.js" class="stripe-button"
   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-  data-image="<%= asset_path(@product.image_url) %>"
-  byebug
-  data-name="<%= @product.name %>"
-  data-amount="<%= @product.price*100.to_i %>"
-  data-currency=" GBP ">
+  data-image="<%= asset_path('bicycle-1296407_1280.png') %>"
+  data-name="<%= current_user.first_name %> <%= current_user.last_name %>"
+  data-amount="<%= @cart.total_price_cart * 100%>"
+  data-currency="<%= 'GBP' %>">
 </script>

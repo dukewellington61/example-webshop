@@ -1,7 +1,27 @@
 <div class="container">
   <h2>Order Information</h2>
+    <div>
   <strong>Order ID: </strong><%= @order.id %>
-  <strong>Product Name: </strong><%= @order.product.name %>
+    </div>
+    <div>
+  <strong>User First Name: </strong><%= @order.user.first_name %>
+    </div>
+    <div>
+  <strong>User Last Name: </strong><%= @order.user.last_name %>
+    </div>
+
+    <% @order.cart.line_items.each do |item| %>
+
+  <strong>Product Name: </strong><%= item.product.name %>
+
+  <strong>Quantity: </strong><%= item.quantity %>
+
+    <% end %>
+
+    <div>
   <strong>Product Price: </strong><%= number_to_currency(@order.product.price/100.to_f) %>
+    </div>
+    <div>
   <strong>Total Price: </strong><%= number_to_currency(@order.total/100.to_f) %>
+    </div>
 </div>

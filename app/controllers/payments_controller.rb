@@ -3,7 +3,7 @@ class PaymentsController < ApplicationController
 
     def create
 
-        @product = Product.find(params[:product_id])
+        @cart = Cart.find(session[:cart_id])
         @user = current_user
 
         # Token is created using Checkout or Elements!
@@ -13,7 +13,7 @@ class PaymentsController < ApplicationController
         # Create the charge on Stripe's servers - this will charge the user's card
         begin
           charge = Stripe::Charge.create(
-            amount: (@product.price * 100).to_i,
+            amount: (@cart.total_price_cart * 100).to_i,
             currency: "GBP",
             source: token,
             description: params[:stripeEmail],
@@ -22,12 +22,12 @@ class PaymentsController < ApplicationController
 
           if charge.paid
             Order.create(
-                product_id: @product.id,
+                product_id: @cart.product.id,
                 user_id: @user.id,
-                total: @product.price
+                total: @line_item.product.price
             )
-            UserMailer.order_placed(@user, @product).deliver_now
-            flash[:notice] = "Your payment has been accepted. Thank you for purchasing #{@product.name}"
+            UserMailer.order_placed(@user, @line_item_product).deliver_now
+            flash[:notice] = "Your payment has been accepted. Thank you for purchasing #{@line_item.product.name}"
 
           end
 
