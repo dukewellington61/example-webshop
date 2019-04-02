@@ -5,6 +5,7 @@ class PaymentsController < ApplicationController
 
         @cart = Cart.find(session[:cart_id])
         @user = current_user
+        @line_item = LineItem.where(:cart_id => @cart.id)
 
         # Token is created using Checkout or Elements!
         # Get the payment token ID submitted by the form:
@@ -21,22 +22,25 @@ class PaymentsController < ApplicationController
           )
 
           if charge.paid
-            Order.create(
-                product_id: @cart.product.id,
-                user_id: @user.id,
-                total: @line_item.product.price
-            )
+            @order = Order.create(user_id: @user.id)
+            @order.save
+
+            @line_item.update(:order_id => @order.id)
+
+            @line_item.update(:cart_id => nil)
+
+
             UserMailer.order_placed(@user, @line_item_product).deliver_now
-            flash[:notice] = "Your payment has been accepted. Thank you for purchasing #{@line_item.product.name}"
+            flash[:notice] = "Your payment has been accepted. Thank you."
 
           end
 
-        rescue Stripe::CardError => e
-          # The card has been declined
-          body = e.json_body
-          err = body[:error]
-          flash[:error] = "Unfortunately, there was an error processing your payment: #{err[:message]}"
-        end
-        redirect_to product_path(@product)
-    end
+
+          rescue Stripe::CardError => e
+            # The card has been declined
+            body = e.json_body
+            err = body[:error]
+            flash[:error] = "Unfortunately, there was an error processing your payment: #{err[:message]}"
+          end
+      end
 end

@@ -6,7 +6,8 @@ User.create!([
   {first_name: "1", last_name: "2", email: "1@2.com", encrypted_password: "$2a$11$spuKPenTQqGyy.qVU4BMouPq0O.gXYVNcE2WgJq9V6sxGnwCZ0wU6", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false},
   {first_name: "3", last_name: "4", email: "3@4.com", encrypted_password: "$2a$11$Vh4D5nQSSdHLHiU657WmE.EdlQjpPj/h1MNTrHG7svfKixtNcyTkG", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false},
   {first_name: "4", last_name: "5", email: "4@5.com", encrypted_password: "$2a$11$xLBQrIvWwVqoexpVOiTYmeyZJc0siNYktE1.iS3DooZfI2K7lQTo.", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false},
-  {first_name: "6", last_name: "7", email: "6@7.com", encrypted_password: "$2a$11$J6NvzqO.lXGdp/czXMVpie.2tosZSwEmjnTg3jz2Dr4tVolkWH6Qy", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false}
+  {first_name: "6", last_name: "7", email: "6@7.com", encrypted_password: "$2a$11$J6NvzqO.lXGdp/czXMVpie.2tosZSwEmjnTg3jz2Dr4tVolkWH6Qy", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false},
+  {first_name: "Peter", last_name: "Fickmann", email: "peter_fickmann@googlemail.com", encrypted_password: "$2a$11$dd3bUJGZ4EGJjYWpyttkq.JdCwCb0qc4.IW0k6cnB3oiWDeK.a8Vy", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, admin: false}
 ])
 Cart.create!([
   {user_id: 90},
@@ -18,15 +19,12 @@ Cart.create!([
   {user_id: nil},
   {user_id: 5},
   {user_id: 94},
-  {user_id: 89},
   {user_id: 93},
+  {user_id: 95},
   {user_id: 92},
-  {user_id: 86},
   {user_id: 1},
-  {user_id: nil},
-  {user_id: nil},
-  {user_id: nil},
-  {user_id: nil}
+  {user_id: 86},
+  {user_id: 89}
 ])
 Comment.create!([
   {user_id: 1, body: "nice", rating: 4, product_id: 1},
@@ -58,29 +56,32 @@ Comment.create!([
   {user_id: 1, body: "geilie!", rating: 5, product_id: 1}
 ])
 LineItem.create!([
-  {cart_id: 940, quantity: 1, product_id: 1},
-  {cart_id: 1176, quantity: 1, product_id: 1},
-  {cart_id: 1176, quantity: 2, product_id: 3},
-  {cart_id: 1179, quantity: 2, product_id: 1},
-  {cart_id: 1180, quantity: 1, product_id: 6}
+  {cart_id: nil, quantity: 2, product_id: 1, order_id: 17},
+  {cart_id: nil, quantity: 3, product_id: 4, order_id: 17},
+  {cart_id: nil, quantity: 1, product_id: 1, order_id: 18},
+  {cart_id: nil, quantity: 1, product_id: 1, order_id: 19},
+  {cart_id: nil, quantity: 1, product_id: 3, order_id: 19}
 ])
 Order.create!([
-  {user_id: 1, product_id: 1, total: 10.0},
-  {user_id: 1, product_id: 3, total: 5.0},
-  {user_id: 1, product_id: 1, total: 949.95},
-  {user_id: 1, product_id: 1, total: 949.95},
-  {user_id: 1, product_id: 1, total: 949.95},
-  {user_id: 63, product_id: 1, total: 949.95},
-  {user_id: 63, product_id: 1, total: 949.95},
-  {user_id: 63, product_id: 1, total: 949.95},
-  {user_id: 63, product_id: 1, total: 949.95},
-  {user_id: 63, product_id: 1, total: 949.95},
-  {user_id: 63, product_id: 1, total: 949.95},
-  {user_id: 63, product_id: 1, total: 949.95},
-  {user_id: 1, product_id: 1, total: 949.95},
-  {user_id: 67, product_id: 1, total: 949.95},
-  {user_id: 67, product_id: 1, total: 949.95},
-  {user_id: 69, product_id: 5, total: 2499.95}
+  {user_id: 1},
+  {user_id: 1},
+  {user_id: 1},
+  {user_id: 1},
+  {user_id: 1},
+  {user_id: 86},
+  {user_id: 86},
+  {user_id: 86},
+  {user_id: 86},
+  {user_id: 86},
+  {user_id: 86},
+  {user_id: 86},
+  {user_id: 86},
+  {user_id: 86},
+  {user_id: 86},
+  {user_id: 86},
+  {user_id: 86},
+  {user_id: 86},
+  {user_id: 89}
 ])
 Product.create!([
   {name: "Mountain Challenger", description: "Sleek yet Robust - Perfect for high speed downhill rides of the breakneck variety!", image_url: "adventure-beach-bicycle-462036.jpg", colour: "black", price: "949.95"},

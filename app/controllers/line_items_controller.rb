@@ -66,7 +66,7 @@ class LineItemsController < ApplicationController
   def destroy
     @cart = Cart.find(session[:cart_id])
     @line_item = LineItem.find_by_id(params[:id])
-    
+
     if @line_item.quantity > 1
       @line_item.decrement(:quantity)
       @line_item.save
