@@ -42,5 +42,18 @@ class PaymentsController < ApplicationController
             err = body[:error]
             flash[:error] = "Unfortunately, there was an error processing your payment: #{err[:message]}"
           end
+
+          respond_to do |format|
+          if @order.save
+            format.html
+            format.js
+
+          end
+          end
+        end
+
+      def show
+        render "payments/create"
       end
-end
+
+      end

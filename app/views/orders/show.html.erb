@@ -10,18 +10,17 @@
   <strong>User Last Name: </strong><%= @order.user.last_name %>
     </div>
 
-    <% @order.cart.line_items.each do |item| %>
-
-  <strong>Product Name: </strong><%= item.product.name %>
-
-  <strong>Quantity: </strong><%= item.quantity %>
-
-    <% end %>
+    <% @order.line_items.each do |line_item| %>
 
     <div>
-  <strong>Product Price: </strong><%= number_to_currency(@order.product.price/100.to_f) %>
+      <%= line_item.product.name %>
+      Price: <%= number_to_currency(line_item.product.price, unit: :£) %>
+      Quantity: <%= line_item.quantity %>
+      Subtotal: <%= number_to_currency(line_item.total_price_line_items, unit: :£) %>
     </div>
+
+    <%end%>
+
     <div>
-  <strong>Total Price: </strong><%= number_to_currency(@order.total/100.to_f) %>
+      Total: <%= number_to_currency(@order.total_price_cart, unit: :£) %>
     </div>
-</div>

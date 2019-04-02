@@ -57,7 +57,7 @@
 
     <% if @cart != nil %>
    <%= @cart.id  %>
-  
+
    <% end %>
 
 
@@ -65,7 +65,7 @@
    <%= link_to cart_path(@cart), class:"navbar-item button is-warning" do%>
             <span class="icon is-small">
               <i class="fa fa-shopping-cart"></i>
-              <span><%= @cart.line_items_count %></span>
+              <span id="line_items_count"><%= @cart.line_items_count %></span>
    <% end %>
 
 

@@ -16,6 +16,8 @@ end
 
 resources :users
 
+resources :payments
+
   get 'simple_pages/about'
   get 'simple_pages/contact'
   get 'simple_pages/index'

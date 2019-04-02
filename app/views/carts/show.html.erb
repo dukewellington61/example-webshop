@@ -37,7 +37,7 @@ Total Price Item:
 <% if user_signed_in? && @cart.line_items.any?%>
 
 <div class = "payment_button">
-<%= form_with(url: '/payments/create') do |form| %>
+<%= form_with(url: '/payments/create', remote: true) do |form| %>
 <%= form.hidden_field :cart_id, value: @cart.id %>
 <%= render partial: "shared/stripe_checkout_button" %>
 </div>
