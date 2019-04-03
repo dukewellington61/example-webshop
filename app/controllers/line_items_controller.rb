@@ -26,8 +26,18 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    @cart = Cart.find(session[:cart_id])
-    selected_product = Product.find(params[:product_id])
+
+    if @cart.user_id
+
+      @cart = Cart.find_by(user_id: current_user)
+
+    else
+
+      @cart = Cart.find(session[:cart_id])
+
+    end
+
+      selected_product = Product.find(params[:product_id])
 
 
     if @cart.products.include?(selected_product)

@@ -1,8 +1,9 @@
 
   <% @orders.each do |order| %>
 
-    <div>       
+    <div>
       Order # <%= link_to order.id, order %>
+      Amount of Line Items: <%= order.line_items.count %>
     </div>
 
 

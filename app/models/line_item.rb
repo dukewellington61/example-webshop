@@ -1,6 +1,6 @@
 class LineItem < ApplicationRecord
   belongs_to :product
-  belongs_to :cart, required: false
+  has_one :cart, required: false
   has_one :user, through: :carts
   belongs_to :order, required: false
 

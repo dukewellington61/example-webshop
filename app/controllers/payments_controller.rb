@@ -23,18 +23,18 @@ class PaymentsController < ApplicationController
 
           if charge.paid
             @order = Order.create(user_id: @user.id)
+            @order.total_price = @cart.total_price_cart
+
             @order.save
 
             @line_item.update(:order_id => @order.id)
 
             @line_item.update(:cart_id => nil)
 
-
             UserMailer.order_placed(@user, @line_item_product).deliver_now
             flash[:notice] = "Your payment has been accepted. Thank you."
 
           end
-
 
           rescue Stripe::CardError => e
             # The card has been declined
@@ -50,6 +50,9 @@ class PaymentsController < ApplicationController
 
           end
           end
+
+
+
         end
 
       def show

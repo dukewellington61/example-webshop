@@ -4,7 +4,7 @@ class Product < ApplicationRecord
  has_many :carts, through: :line_items
  has_many :orders, through: :line_items
  has_many :comments, dependent: :destroy
- has_many :products, through: :line_items
+ 
 
  validates :name, presence: true
  validates :price, :numericality => {:greater_than => 0}

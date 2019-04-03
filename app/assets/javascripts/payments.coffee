@@ -2,6 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-# $("#line_items_count").update();
 
-console.log("test")
+
+
+
+
+
+    $('#line_items_count').hide();

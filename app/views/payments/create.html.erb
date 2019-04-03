@@ -1,20 +1,5 @@
 <h1>Thank you for shopping with us!</h1>
 
-<h2>You have purchased the following items:</h2>
-
-<% @order.line_items.each do |line_item| %>
-
-<div>
-  <%= line_item.product.name %>
-  Price: <%= number_to_currency(line_item.product.price, unit: :£) %>
-  Quantity: <%= line_item.quantity %>
-  Subtotal: <%= number_to_currency(line_item.total_price_line_items, unit: :£) %>
-</div>
-
-<%end%>
-
-<div>
-  Total: <%= number_to_currency(@cart.total_price_cart, unit: :£) %>
-</div>
-
 <h2>Your order is confirmed and your credit card has been charged.</h2>
+
+<p> <%= link_to "check your order", order_path(@order) %> </p>
