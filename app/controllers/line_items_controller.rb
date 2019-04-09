@@ -49,7 +49,7 @@ class LineItemsController < ApplicationController
       @line_item.save
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart, notice: "Item added to cart." }
+        format.html { redirect_to @line_item.cart }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
@@ -66,7 +66,7 @@ class LineItemsController < ApplicationController
     @line_item.increment(:quantity)
     @line_item.save
     respond_to do |format|
-    format.html { redirect_to cart_path(@cart), notice: 'Line item was successfully updated.' }
+    format.html { redirect_to cart_path(@cart) }
 
     end
   end
@@ -81,12 +81,12 @@ class LineItemsController < ApplicationController
       @line_item.decrement(:quantity)
       @line_item.save
       respond_to do |format|
-      format.html { redirect_to cart_path(@cart), notice: 'Line Item removed from your shopping cart.' }
+      format.html { redirect_to cart_path(@cart) }
     end
     else
       @line_item.destroy
       respond_to do |format|
-      format.html { redirect_to cart_path(@cart), notice: 'No more line items in your shopping cart.' }
+      format.html { redirect_to cart_path(@cart) }
       format.json { head :no_content }
     end
   end

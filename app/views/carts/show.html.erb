@@ -4,7 +4,8 @@
 
 <% @cart.line_items.each do |line_item| %>
 
-<div>
+<div class="versuch2">
+  <div>
 Amount: <%= line_item.quantity %>
 </div>
 <div>
@@ -28,6 +29,7 @@ Total Price Item:
 <%= button_to '+', line_item_path(line_item.id), :method => :put %>
 
 <%end%>
+</div>
 <br>
 <div>
   Total:

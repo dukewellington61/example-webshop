@@ -1,9 +1,13 @@
 class OrdersController < ApplicationController
-
   before_action :authenticate_user!
+  respond_to :html, :json, :js
 
 	def index
-    @orders = Order.all
+    if current_user.admin?
+      @orders = Order.all
+    else
+      @orders = current_user.orders
+    end
   end
 
   def show
@@ -14,6 +18,12 @@ class OrdersController < ApplicationController
   end
 
   	def create
+      respond_to do |format|
+      if @order.save
+        format.html
+        format.js
+      end
+      end
   end
 
   	def destroy

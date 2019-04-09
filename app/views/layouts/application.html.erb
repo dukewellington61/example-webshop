@@ -61,13 +61,18 @@
    <% end %>
 
 
+<div class="versuch">
+
 
    <%= link_to cart_path(@cart), class:"navbar-item button is-warning" do%>
             <span class="icon is-small">
               <i class="fa fa-shopping-cart"></i>
-              <span id="line_items_count"><%= @cart.line_items_count %></span>
+
    <% end %>
 
+  <span id="line_items_count"><%= @cart.line_items_count %></span>
+
+</div>
 
     <ul class="navbar-nav ml-auto">
 
