@@ -31,10 +31,25 @@ Total Price Item:
 <%end%>
 </div>
 <br>
-<div>
-  Total:
-<%= number_to_currency(@cart.total_price_cart, unit: :£) %>
-</div>
+
+<% if @cart.line_items.any? %>
+  <div>
+    Total:
+  <%= number_to_currency(@cart.total_price_cart, unit: :£) %>
+  </div>
+  <div>
+    <%= link_to 'Empty Cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+  <div>
+    <%= link_to('continue shopping', products_path, class: "btn btn-sm btn-primary btn_product_index") %>
+  </div>
+<% else %>
+  <div>
+    <%= link_to('start shopping', products_path, class: "btn btn-sm btn-primary btn_product_index") %>
+  </div>
+<% end %>
+
+<br>
 
 <% if user_signed_in? && @cart.line_items.any?%>
 
@@ -55,10 +70,3 @@ Total Price Item:
 </div>
 <% end %>
 <% end %>
-
-
-
-
-
-<%= link_to 'Empty Cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Back', carts_path %>

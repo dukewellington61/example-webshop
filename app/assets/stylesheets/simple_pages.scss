@@ -5,7 +5,7 @@
 //global
 
 .navbar {
-	background-color: rgba(70,130,180,0.75) !important;
+	background-color: rgba(70,130,180,0.95) !important;
 	position: fixed;
 	width: 100%;
 	top: 0;
@@ -24,7 +24,7 @@
 
 .nav-link:hover {
 	background-color: rgba(70,130,180,0.05) !important;
-	font-weight: 900;	
+	font-weight: 900;
 }
 
 @media (max-width: 340px) {
@@ -60,7 +60,7 @@ h1 {
 
 @media (max-width: 361px) {
 	h1 {
-		font-size: 1.5em;		
+		font-size: 1.5em;
 	}
 }
 
@@ -100,9 +100,9 @@ footer {
 .carousel-item img {
 	 height: auto;
 	 max-height: 100%;
-	 width: 100%;	 
-	 max-width: 100%; 
-} 
+	 width: 100%;
+	 max-width: 100%;
+}
 
 @media (max-width: 1025px) {
 	#carousel_container {
@@ -115,11 +115,11 @@ footer {
 }
 
 .carousel-control-next {
-	max-height: auto;	
+	max-height: auto;
 }
 
 .carousel-control-prev {
-	max-height: auto;	
+	max-height: auto;
 }
 
 .carousel-caption {
@@ -151,10 +151,10 @@ footer {
 
 .carousel-indicators {
 	 top: 60px;
-     
+
      height: 20px;
-     
-     
+
+
      margin: 0 auto;
 }
 

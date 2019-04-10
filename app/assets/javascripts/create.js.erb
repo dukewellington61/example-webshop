@@ -1,22 +1,6 @@
-// $(document).on('turbolinks:load', function(){
-// $(".payment_button").click(function(){
-//
-//   $("#line_items_count").hide();
-//   $(".versuch").append('0');
-// })
-// });
-
-// $(document).on('turbolinks:load', function() {
-// $.get( "payments/create.html.erb", function() {
-//   $("#line_items_count").hide();
-//   $(".versuch").append('0');
-// });
-// });
-
 $(document).ready(function () {
         if (window.location.href == 'http://localhost:3000/payments/create') {
-
           $("#line_items_count").hide();
-          $(".versuch").append('0');
+          $(".navbar_cart").append('0');
         }
     });
