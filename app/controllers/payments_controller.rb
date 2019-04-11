@@ -26,6 +26,13 @@ class PaymentsController < ApplicationController
             @order = Order.create(user_id: @user.id)
             @order.total_price = @cart.total_price_cart
 
+            # @orders = Order.all
+            #
+            # @orders.each do |order|
+            #   order.update(:created_at=>Time.now)
+            #   @order.created_at = order.created_at
+            # end
+
             @order.save
 
             @line_item.update(:order_id => @order.id)

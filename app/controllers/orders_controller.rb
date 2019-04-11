@@ -18,6 +18,11 @@ class OrdersController < ApplicationController
   end
 
   	def create
+      @orders.each do |order|
+        order.update(:created_at=>Time.now)
+        @order << order
+      end
+
       respond_to do |format|
       if @order.save
         format.html
