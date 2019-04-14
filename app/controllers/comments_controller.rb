@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment = @product.comments.new(comment_params)
     @comment.user = current_user
     @user = current_user
-    
+
     respond_to do |format|
     if @comment.save
       #ActionCable.server.broadcast 'product_channel', comment: @comment, average_rating: @comment.product.average_rating
@@ -34,13 +34,7 @@ private
   # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = User.find(params[:id])
-  end
-
-  def must_be_admin
-  unless current_user && current_user.admin?
-    redirect_to products_path, notice: "This is only for Admins"
-  end
-end
+  end  
 
   def comment_params
     params.require(:comment).permit(:user_id, :body, :rating)

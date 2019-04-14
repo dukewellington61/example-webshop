@@ -1,72 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Shopping Cart No <%=@cart.id%></h1>
-
-<% @cart.line_items.each do |line_item| %>
-
-<div class="versuch2">
-  <div>
-Amount: <%= line_item.quantity %>
-</div>
-<div>
-<%= line_item.product.name %>
-</div>
-<div>
-<%= line_item.product.description %>
-</div>
-line_item_id: <%= line_item.id %>
-<div>
-product_id: <%= line_item.product_id %>
-</div>
-Price Item:
-<%= number_to_currency(line_item.product.price, unit: :£) %>
-
-Total Price Item:
-<%= number_to_currency(line_item.total_price_line_items, unit: :£) %>
-
-<%= button_to '-', line_item, method: :delete %>
-
-<%= button_to '+', line_item_path(line_item.id), :method => :put %>
-
-<%end%>
-</div>
-<br>
+<h1>Shopping Cart</h1>
 
 <% if @cart.line_items.any? %>
-  <div>
-    Total:
-  <%= number_to_currency(@cart.total_price_cart, unit: :£) %>
-  </div>
-  <div>
-    <%= link_to 'Empty Cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </div>
-  <div>
-    <%= link_to('continue shopping', products_path, class: "btn btn-sm btn-primary btn_product_index") %>
-  </div>
-<% else %>
-  <div>
-    <%= link_to('start shopping', products_path, class: "btn btn-sm btn-primary btn_product_index") %>
-  </div>
-<% end %>
 
+<%= render 'show' %>
+
+<div>
+  <%= link_to 'Empty Cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
 <br>
+<div>
+  <%= link_to('continue shopping', products_path, class: "btn btn-sm btn-primary", type: "submit", style: "color:white") %>
+</div>
+<br>
+<% else %>
+
+  <%= link_to('start shopping', products_path, class: "btn btn-sm btn-primary", type: "submit", style: "color:white") %>
+
+<% end %>
 
 <% if user_signed_in? && @cart.line_items.any?%>
 
 <div class = "payment_button">
-<%= form_with(url: '/payments/create', remote: true) do |form| %>
-<%= form.hidden_field :cart_id, value: @cart.id %>
-<%= render partial: "shared/stripe_checkout_button" %>
+  <%= form_with(url: '/payments/create', remote: true) do |form| %>
+  <%= form.hidden_field :cart_id, value: @cart.id %>
+  <%= render partial: "shared/stripe_checkout_button" %>
+  <% end %>
 </div>
-
-<% end %>
 
 <% else %>
 
 <% if @cart.line_items.any?%>
 
-<div>
-<%= link_to('Login to pay', new_user_session_path, class: "btn btn-sm btn-primary btn_product_index") %>
-</div>
+  <%= button_to('Login to pay', new_user_session_path, type: "button", class: "btn btn-sm btn-info", style: "color:white") %>
+
 <% end %>
 <% end %>

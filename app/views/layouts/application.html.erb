@@ -52,21 +52,18 @@
       <li class="nav-item">
         <%= link_to "Contact", simple_pages_contact_path, class: "nav-link" %>
       </li>
-
     </ul>
 
-<% if @cart != nil %>
-  <%= @cart.id  %>
-<% end %>
 
-<div class="navbar_cart">
-   <%= link_to cart_path(@cart), class:"navbar-item button is-warning" do%>
-            <span class="icon is-small">
-              <i class="fa fa-shopping-cart"></i>
-   <% end %>
 
-   <span id="line_items_count"><%= @cart.line_items_count %></span>
-</div>
+  <div class="navbar_cart">
+     <%= link_to cart_path(@cart), class:"navbar-item button is-warning" do%>
+              <span class="icon is-small">
+                <i class="fa fa-shopping-cart"></i>
+     <% end %>
+
+     <span id="line_items_count"><%= @cart.line_items_count %></span>
+  </div>
 
     <ul class="navbar-nav ml-auto">
 
@@ -82,18 +79,18 @@
         <% end %>
     </ul>
 
-    <%= form_with(url: products_path, method: 'get', local: true) do |form| %>
-    <%= form.text_field :q, id: 'q', value: params[:q] %>
-    <%= form.submit 'Search' %>
+      <%= form_with(url: products_path, method: 'get', local: true) do |form| %>
+      <%= form.text_field :q, id: 'q', value: params[:q] %>
+      <%= form.submit 'Search' %>
 
-    <% if signed_in? && current_user.admin? %>
-      <td>Admin: <%= current_user.first_name %> <%= current_user.last_name %></td>
-    <% elsif signed_in? %>
-      <td>User: <%= current_user.first_name %> <%= current_user.last_name %></td>
-    <% else%>
-      No user logged in.
+      <% if signed_in? && current_user.admin? %>
+        <td>Admin: <%= current_user.first_name %> <%= current_user.last_name %></td>
+      <% elsif signed_in? %>
+        <td>User: <%= current_user.first_name %> <%= current_user.last_name %></td>
+      <% else%>
+        No user logged in.
+      <% end %>
     <% end %>
-  <% end %>
 
   </div>
 </nav>
