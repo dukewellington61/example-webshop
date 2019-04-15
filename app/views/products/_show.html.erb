@@ -1,14 +1,8 @@
-<div>
 <div class="container container_form">
   <div class="row" data-product-id="<%= @product.id %>">
     <div class="product_img col-sm-7">
-
 		    <div class="img-fluid image_show"><%= image_tag(@product.image_url, class: "img-zoom", data_zoom_image:"@product.image_url") %></div>
-
-			     <div class="links_product">
-		   		      <a class="btn btn-sm btn-primary btn_product_index" id="edit_product" <%= link_to 'Back', products_path %></a>
-			     </div>
-
+			  <div class="links_product"><a class="btn btn-sm btn-primary btn_product_index" id="edit_product" <%= link_to 'Back', products_path %></a></div>
     </div>
 
     <div class="product_info col-sm-5">
@@ -38,9 +32,10 @@
              <p class="comment_text">
                   <%= @product.lowest_rating_comment.body %>
             </p>
+      <div>
 
-          <div>Average Rating: <div class="rated" id="average_rating" data-score="<%= @product.average_rating %>"></div> </div>
-      </div>
+      <div>Average Rating: <div class="rated" id="average_rating" data-score="<%= @product.average_rating %>"></div> </div>
+
    <%end%>
 
 
@@ -53,3 +48,6 @@
               </div>
             </div>
     <% end %>
+  </div>
+ </div>
+</div>

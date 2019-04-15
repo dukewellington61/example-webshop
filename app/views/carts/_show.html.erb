@@ -1,3 +1,6 @@
+<div class="shopping_cart_show_partial">
+
+
 <div class="container shopping_cart_container">
   <div class="row shopping_cart_row"
     <div class="col-2">
@@ -29,7 +32,7 @@
 
   <br>
   <div class="row shopping_cart_row"
-    <div class="col-2">
+    <div class="col-2" id="shopping_cart_col">
       <div class="img-fluid" id="shopping_cart_img"><%= image_tag("#{line_item.product.image_url}") %></div>
 
 
@@ -41,16 +44,16 @@
       <%= number_to_currency(line_item.product.price, unit: :£) %>
     </div>
 
-    <div class="col-2 shopping_cart_col">
+    <div class="col-2" id="shopping_cart_col_line_item_quantity">
       <%= line_item.quantity %>
     </div>
 
-    <div class="col-2 shopping_cart_col">
-      <a class="btn btn-sm btn-outline-primary"<%= link_to '-', line_item, method: :delete %></a>
-      <a class="btn btn-sm btn-outline-primary"<%= link_to '+', line_item_path(line_item.id), :method => :put %></a>
+    <div class="col-2" id="shopping_cart_col">
+      <a class="btn btn-sm btn-outline-primary"<%= link_to '-', line_item, method: :delete, remote: true %></a>
+      <a class="btn btn-sm btn-outline-primary"<%= link_to '+', line_item_path(line_item.id), :method => :put, remote: true %></a>
     </div>
 
-    <div class="col-2 shopping_cart_col">
+    <div class="col-2" id="shopping_cart_col_line_item_total">
       <%= number_to_currency(line_item.total_price_line_items, unit: :£) %>
     </div>
     </div>
@@ -65,9 +68,11 @@
       <div class="col-2"></div>
       <div class="col-2"></div>
       <div class="col-2"></div>
-      <div class="col-2">
+      <div class="col-2" id="shopping_cart_col_cart_total">
             Cart Total:
           <%= number_to_currency(@cart.total_price_cart, unit: :£) %>
       </div>
   </div>
+</div>
+</div>
 </div>

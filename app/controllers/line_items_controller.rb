@@ -66,7 +66,8 @@ class LineItemsController < ApplicationController
     @line_item.increment(:quantity)
     @line_item.save
     respond_to do |format|
-    format.html { redirect_to cart_path(@cart) }
+      format.js
+    # format.html { redirect_to cart_path(@cart) }
 
     end
   end
@@ -81,16 +82,16 @@ class LineItemsController < ApplicationController
       @line_item.decrement(:quantity)
       @line_item.save
       respond_to do |format|
-      format.html { redirect_to cart_path(@cart) }
-    end
+        format.js
+      end
     else
       @line_item.destroy
       respond_to do |format|
       format.html { redirect_to cart_path(@cart) }
       format.json { head :no_content }
+      end
     end
   end
-end
 
   private
     # Use callbacks to share common setup or constraints between actions.
