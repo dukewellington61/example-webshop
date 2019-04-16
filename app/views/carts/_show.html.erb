@@ -1,7 +1,6 @@
 <div class="container shopping_cart_container">
 
   <div class="row shopping_cart_row">
-      <div class="col"></div>
       <div class="col-2"></div>
       <div class="col-2">name</div>
       <div class="col-2">price</div>
@@ -32,8 +31,8 @@
       </div>
 
       <div class="col-2" id="shopping_cart_col">
-        <a class="btn btn-sm btn-outline-primary"<%= link_to '-', line_item, method: :delete, remote: true %></a>
-        <a class="btn btn-sm btn-outline-primary"<%= link_to '+', line_item_path(line_item.id), :method => :put, remote: true %></a>
+        <%= link_to '-', line_item, method: :delete, remote: true %>
+        <%= link_to '+', line_item_path(line_item.id), :method => :put, remote: true %>
       </div>
 
       <div class="col-2" id="shopping_cart_col_line_item_total">
