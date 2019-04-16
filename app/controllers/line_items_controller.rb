@@ -66,8 +66,8 @@ class LineItemsController < ApplicationController
     @line_item.increment(:quantity)
     @line_item.save
     respond_to do |format|
-      # format.js
-    format.html { redirect_to cart_path(@cart) }
+      format.js
+    # format.html { redirect_to cart_path(@cart) }
 
     end
   end
@@ -82,8 +82,7 @@ class LineItemsController < ApplicationController
       @line_item.decrement(:quantity)
       @line_item.save
       respond_to do |format|
-        format.html { redirect_to cart_path(@cart) }
-        # format.js
+        format.js
       end
     else
       @line_item.destroy
