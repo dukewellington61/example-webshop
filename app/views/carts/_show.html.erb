@@ -1,7 +1,5 @@
-<div class="shopping_cart_show_partial">
-
-
 <div class="container shopping_cart_container">
+
   <div class="row shopping_cart_row"
     <div class="col-2">
 
@@ -24,11 +22,11 @@
       line item total
     </div>
   </div>
-</div>
+
 
 
 <% @cart.line_items.each do |line_item| %>
-<div class="container shopping_cart_container">
+
 
   <br>
   <div class="row shopping_cart_row"
@@ -56,10 +54,10 @@
     <div class="col-2" id="shopping_cart_col_line_item_total">
       <%= number_to_currency(line_item.total_price_line_items, unit: :£) %>
     </div>
-    </div>
+  </div>
 
 <%end%>
-</div>
+
 
   <div class="row shopping_cart_row"
       <div class="col-2">
@@ -73,6 +71,4 @@
           <%= number_to_currency(@cart.total_price_cart, unit: :£) %>
       </div>
   </div>
-</div>
-</div>
 </div>
