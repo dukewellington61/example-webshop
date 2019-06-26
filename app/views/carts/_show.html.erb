@@ -10,7 +10,7 @@
   </div>
 
 <div>
-<% @cart.line_items.each do |line_item| %>
+<% @cart.line_items.created_at_asc.each do |line_item| %>
 
   <br>
 

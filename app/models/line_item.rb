@@ -3,6 +3,8 @@ class LineItem < ApplicationRecord
   has_one :cart, required: false
   has_one :user, through: :carts
   belongs_to :order, required: false
+  scope :created_at_asc, -> { order(created_at: :asc) }
+  
 
 
   def total_price_line_items
@@ -11,5 +13,5 @@ class LineItem < ApplicationRecord
 
   def line_items_count
     quantity.to_i
-  end
+  end  
 end
