@@ -71,7 +71,7 @@ group :development do
 
 group :production do
   gem 'pg', '~> 1.1.4'
-  gem 'bundler', '2.0.2'
+  
 
 end
 
