@@ -247,6 +247,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
+  bundler (= 2.0.2)
   byebug
   cancancan (~> 1.10)
   coffee-rails (~> 4.2)
