@@ -1,0 +1,55 @@
+<div class="container shopping_cart_container">
+
+  <div class="row">
+      <div class="col"></div>
+      <div class="col">name</div>
+      <div class="col">price</div>
+      <div class="col">amount</div>
+      <div class="col">change amount</div>
+      <div class="col">line item total</div>
+  </div>
+
+<div>
+<% @cart.line_items.created_at_asc.each do |line_item| %>
+
+  <br>
+
+  <div class="row static">
+      <div class="col">
+        <div class="img-fluid" id="shopping_cart_img"><%= image_tag("#{line_item.product.image_url}") %></div>
+      </div>
+
+      <div class="col">
+        <%= line_item.product.name %>
+      </div>
+
+      <div class="col">
+        <%= number_to_currency(line_item.product.price, unit: :£) %>
+      </div>
+
+      <div class="col">
+        <%= line_item.quantity %>
+      </div>
+
+      <div class="col">
+        <a class="btn btn-sm btn-outline-primary"<%= link_to '-', line_item, method: :delete, remote: true %></a>
+        <a class="btn btn-sm btn-outline-primary"<%= link_to '+', line_item_path(line_item.id), :method => :put, remote: true %></a>
+      </div>
+
+      <div class="col">
+        <%= number_to_currency(line_item.total_price_line_items, unit: :£) %>
+      </div>
+  </div>
+
+<%end%>
+</div>
+
+  <div class="row">
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col">Cart Total:<%= number_to_currency(@cart.total_price_cart, unit: :£) %></div>
+  </div>
+</div>

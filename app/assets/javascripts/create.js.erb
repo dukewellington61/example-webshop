@@ -1,0 +1,16 @@
+$(document).ready(function () {
+
+	<%if Rails.env.development?%>
+
+      if (window.location.href == 'http://localhost:3000/payments/create') {
+          $("#line_items_count").hide();
+          $(".navbar_cart").append('0');}
+
+	<%else%>
+
+			if (window.location.href == 'https://duke-wellington-example-app.herokuapp.com/payments/create') {
+					$("#line_items_count").hide();
+					$(".navbar_cart").append('0');}
+
+  <%end%>
+    });

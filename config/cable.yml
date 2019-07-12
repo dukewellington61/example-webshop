@@ -1,0 +1,10 @@
+development:
+  adapter: async
+
+test:
+  adapter: async
+
+production:
+  adapter: postgresql
+  url: postgres://avxpqahxjmxsxe:9622c316663738437fb02dbf154390042f83f0f65ec8b594ea08f0dd6ccb7925@ec2-54-235-68-3.compute-1.amazonaws.com:5432/d8ilbeiel2rq3d
+  channel_prefix: nameofapp_production

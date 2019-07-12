@@ -1,0 +1,176 @@
+// Place all the styles related to the simple_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//global
+
+.navbar {
+	background-color: rgba(70,130,180,0.95) !important;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.navbar-brand {
+	color: rgba(0,0,0,.5) !important;
+}
+
+.navbar-brand:hover {
+	background-color: rgba(70,130,180,0.05) !important;
+	color: black !important;
+}
+
+.nav-link:hover {
+	background-color: rgba(70,130,180,0.05) !important;
+	font-weight: 900;
+}
+
+@media (max-width: 340px) {
+	.navbar-brand {
+		font-size: 1em;
+	}
+}
+
+#yield {
+	padding-bottom: 100px;
+}
+
+h1 {
+	font-size: 2em;
+	padding-top: 50px;
+	padding-bottom: 20px;
+	font-family: Comic Sans MS,Verdana,Trebuchet MS,Arial Black,Impact,sans serif;
+	text-align: center;
+}
+
+ h2 {
+ 	font-size: 1.5em;
+ 	padding-bottom: 50px;
+ 	font-family: Comic Sans MS,Verdana,Trebuchet MS,Arial Black,Impact,sans serif;
+ 	text-align: center;
+}
+
+@media (max-width: 430px) {
+	h2 {
+	 	padding-bottom: 20px;
+	}
+}
+
+@media (max-width: 361px) {
+	h1 {
+		font-size: 1.5em;
+	}
+}
+
+p {
+	font-family:Comic Sans MS,Verdana,Trebuchet MS,Arial Black,Impact,sans serif;
+ 	text-align: center;
+}
+
+.my-image {
+	width: auto;
+	max-width: 100%;
+	padding-bottom: 30px;
+}
+
+footer {
+	position: fixed;
+	background-color: rgba(70,130,180,0.75);
+	width: 100%;
+	bottom: 0;
+	left:0;
+}
+
+.fab {
+	font-size: 2em;
+}
+
+.btn-floating:hover {
+	background-color: rgba(70,130,180,0.05) !important;
+}
+
+//landing page
+
+#carousel_container {
+	padding-top: 17px;
+}
+
+.carousel-item img {
+	 height: auto;
+	 max-height: 100%;
+	 width: 100%;
+	 max-width: 100%;
+}
+
+@media (max-width: 1025px) {
+	#carousel_container {
+	 left: 0;
+  	 position: absolute;
+     top: 50%;
+     -ms-transform: translateY(-50%);
+     transform: translateY(-50%);
+	}
+}
+
+.carousel-control-next {
+	max-height: auto;
+}
+
+.carousel-control-prev {
+	max-height: auto;
+}
+
+.carousel-caption {
+	height: 2em !important;
+	background-color: rgba(46, 49, 49, 0.5);
+	font-size: 2em;
+	top: 0;
+	left:0;
+	width: 100%;
+}
+
+.carousel-caption p {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 1.5em;
+	vertical-align: middle;
+}
+
+@media (max-width: 420px) {
+	.carousel-caption p {
+		font-size: 1em;
+	}
+}
+
+@media (min-width: 250px) {
+	.carousel-caption {
+		display: block !important;
+	}
+}
+
+.carousel-indicators {
+	 top: 60px;
+
+     height: 20px;
+
+
+     margin: 0 auto;
+}
+
+//contact
+
+.email_form {
+	position: relative;
+	margin: 0 auto;
+	max-width: 400px;
+}
+
+//tank_you.thml.erb
+
+.panel-default {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+}

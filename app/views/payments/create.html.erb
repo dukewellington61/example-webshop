@@ -1,0 +1,13 @@
+<h1>Thank you for shopping with us!</h1>
+
+<h2>Your order is confirmed and your credit card has been charged.</h2>
+
+<% if @order %>
+
+<p> <%= link_to "check your order", order_path(@order) %> </p>
+
+<% else %>
+
+<p> <%= link_to "here is a list of all your orders", orders_path %> </p>
+
+<% end %>

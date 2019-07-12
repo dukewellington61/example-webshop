@@ -1,0 +1,24 @@
+<br>
+
+<% all_orders_but_latest.each do |order| %>
+  <div>
+    <br>
+    Order # <%= link_to order.id, order %>
+    Amount of Line Items: <%= order.line_items.count %>
+    Created_at: <%= order.created_at %>
+  </div>
+<% end %>
+
+<br>
+<div>
+
+  <% if latest_order %>
+  Latest Order # <%= link_to latest_order.id, latest_order %>
+  Amount of Line Items: <%= latest_order.line_items.count %>
+  Created_at: <%= latest_order.created_at %>
+  <% else %>
+
+<h2>No orders yet.</h2>
+
+  <% end %>
+</div>

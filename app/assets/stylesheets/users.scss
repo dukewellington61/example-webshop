@@ -1,0 +1,20 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// views/devise/registrations/new.html.erb - sign up form
+
+.header_register {
+	margin-top: 80px !important;
+	padding-bottom: 25px;
+}
+
+.form_register {
+	position: relative;
+	margin: 0 auto;
+	max-width: 400px;
+}
+
+.register_button {
+	width: 100%;
+}

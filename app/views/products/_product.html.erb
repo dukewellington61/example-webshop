@@ -1,0 +1,20 @@
+
+        <div class="col-md-4">
+          <div class="name_product"><%= product.name %></div>
+          <div class="description_product"><%= product.description %></div>
+          <div class="colour">
+          <span class="color_tag">colour: </span>
+          <span class="color_product"><%= product.colour %></span>
+          </div>
+          <div class="img-fluid"><%= link_to (image_tag(product.image_url)), product %></div>
+          <div class="price">
+          <span class="price_tag">price: </span>
+          <span class="price_product"><%= product.price %> £</span>
+          </div>
+          <% if current_user && current_user.admin? %>
+          <div class="links_product">
+            <a class="btn btn-sm btn-primary btn_product_index" id="edit_product" <%= link_to 'Edit', {:action=>"edit", :controller=>"products", :id=>product.id} %></a>
+            <a class="btn btn-sm btn-primary btn_product_index" id="destroy_product" <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+         </div>
+         <% end %>
+       </div>

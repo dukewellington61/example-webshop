@@ -1,0 +1,15 @@
+<% if comment.user != nil %>
+  <span><%= comment.user.first_name %> <span><%= comment.user.last_name %><small><em class="time_ago_in_words"><%= " #{time_ago_in_words(comment.created_at)} ago" %></em></small><span>
+<% else %>
+  User has been deleted but you can still read his or her comment :-).
+<% end %>
+
+<% if current_user && current_user.admin? %>
+  <span><%= link_to ('<span class="fas fa-trash-alt"></span>').html_safe, product_comment_path(comment.product, comment), method: :delete, data: { confirm: 'Are you sure?' } %></span>
+<% end %>
+
+<!-- <p><%= "Rating: #{comment.rating}/5" %></p> -->
+<div><%= comment.body %></div>
+<div class="rated" data-score="<%= comment.rating %>"></div>
+            <br>
+            <br>

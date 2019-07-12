@@ -1,0 +1,11 @@
+<script
+  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+  data-image="<%= asset_path('bicycle-1296407_1280.png') %>"
+  data-name="duke-wellington-example-app"
+  data-description="Your Order"
+  data-email="<%= current_user.email %>"
+  data-amount="<%= @cart.total_price_cart * 100 %>"
+  data-locale="auto"
+  data-currency="GBP">
+</script>

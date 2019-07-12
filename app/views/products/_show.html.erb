@@ -1,0 +1,53 @@
+<div class="container container_form">
+  <div class="row" data-product-id="<%= @product.id %>">
+    <div class="product_img col-sm-7">
+		    <div class="img-fluid image_show"><%= image_tag(@product.image_url, class: "img-zoom", data_zoom_image:"@product.image_url") %></div>
+			  <div class="links_product"><a class="btn btn-sm btn-primary btn_product_index" id="edit_product" <%= link_to 'Back', products_path %></a></div>
+    </div>
+
+    <div class="product_info col-sm-5">
+
+      <div class="id_product"><%= @product.id %></div>
+
+    	<div class="name_product"><%= @product.name %></div>
+
+		  <div class="description_product"><%= @product.description %></div>
+
+		  <div class="colour">
+			     <span class="color_tag">colour: </span>
+			     <span class="color_product"><%= @product.colour %></span>
+		  </div>
+
+		 <div class="price">
+			    <span class="price_tag">price: </span>
+			    <span class="price_product"><%= @product.price %> £</span>
+		 </div>
+<hr>
+    <% if @product.comments.length > 1 %>
+      <div id="user_comment">
+            <p class="comment_header">What our customers have to say:</p>
+              <p class="comment_text">
+                  <%= @product.highest_rating_comment.body %>
+             </p>
+             <p class="comment_text">
+                  <%= @product.lowest_rating_comment.body %>
+            </p>
+      <div>
+
+      <div>Average Rating: <div class="rated" id="average_rating" data-score="<%= @product.average_rating %>"></div></div>
+
+   <%end%>
+
+
+   <%= form_for( :line_item, url: line_items_path(product_id: @product)) do |f| %>
+            <div class="form-inline my-2 my-lg-0">
+              <div class="form-group">
+                <%= f.hidden_field :product_id, value: @product.id %>
+                <%= f.select "quantity", raw("<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>") %>
+                <%= f.submit "Add to Cart", class:"btn btn-sm btn btn-primary" %>
+              </div>
+            </div>
+    <% end %>
+  </div>
+ </div>
+</div>

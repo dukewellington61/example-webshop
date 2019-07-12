@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>Order Information</h2>
+    <div>
+  <strong>Order ID: </strong><%= @order.id %>
+    </div>
+    <div>
+  <strong>User First Name: </strong><%= @order.user.first_name %>
+    </div>
+    <div>
+  <strong>User Last Name: </strong><%= @order.user.last_name %>
+    </div>
+
+    <% @order.line_items.each do |line_item| %>
+
+    <div>
+      <%= line_item.product.name %>
+      Price: <%= number_to_currency(line_item.product.price, unit: :£) %>
+      Quantity: <%= line_item.quantity %>
+      Subtotal: <%= number_to_currency(line_item.total_price_line_items, unit: :£) %>
+    </div>
+
+    <%end%>
+
+    <div>
+      Total: <%= number_to_currency(@order.total_price, unit: :£) %>
+    </div>
