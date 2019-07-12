@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+<<<<<<< HEAD
 ruby '2.6.3'
+=======
+ruby '2.5.3'
+>>>>>>> 5940f7857efffb17b65c52c8d502ef18d8ee2f18
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
@@ -40,7 +44,11 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 ## Gemfile for Rails 3+, Sinatra, and Merb
+<<<<<<< HEAD
 gem 'will_paginate', '~> 3.1.7'
+=======
+gem 'will_paginate', '~> 3.1.0'
+>>>>>>> 5940f7857efffb17b65c52c8d502ef18d8ee2f18
 
 gem 'stripe'
 
@@ -70,7 +78,11 @@ group :development do
   gem 'seed_dump'
 
 group :production do
+<<<<<<< HEAD
   gem 'pg', '~> 1.1.4'
+=======
+  gem 'pg'
+>>>>>>> 5940f7857efffb17b65c52c8d502ef18d8ee2f18
 
 end
 
